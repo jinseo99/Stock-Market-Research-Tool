@@ -56,24 +56,24 @@ layout = html.Div([
             'width': '50%'},
         ]
     ),
-    dcc.Store(id='cached-data',storage_type="local"),
+    dcc.Store(id='cached-data',storage_type="session"),
 
 ])
 
-@callback(
-    Output("cached-data","data"),
-    Input('my-date-picker-single', 'date'),
-    State("cached-data","data"),
+# @callback(
+#     Output("cached-data","data"),
+#     Input('my-date-picker-single', 'date'),
+#     State("cached-data","data"),
 
-)
-def update_output(selected_date, cached_data):
-    # print("DEBUG DATEPICKER", selected_date, cached_data)
-    if selected_date:
-        selected_date = date.fromisoformat(selected_date)
-        year,month,day = selected_date.year,selected_date.month,selected_date.day
-        cur_date = date(year,month,day)
-        return {"date":cur_date}
-    return cached_data
+# )
+# def update_output(selected_date, cached_data):
+#     # print("DEBUG DATEPICKER", selected_date, cached_data)
+#     if selected_date:
+#         selected_date = date.fromisoformat(selected_date)
+#         year,month,day = selected_date.year,selected_date.month,selected_date.day
+#         cur_date = date(year,month,day)
+#         return {"date":cur_date}
+#     return cached_data
 
 @callback(
     Output('output-container-date-picker-single', 'children'),
@@ -81,13 +81,24 @@ def update_output(selected_date, cached_data):
     Output('screener-datatable', 'columns'),
     Output("screener-datatable", "selected_cells"),
     Output("screener-datatable", "active_cell"),
-    Output("my-date-picker-single","initial_visible_month"),
-    Input("cached-data","data")
-)
-def populateTable(cached_data):
-    # print("DEBUG CACHED",cached_data)
-    selected_date = date.fromisoformat(cached_data["date"]) if cached_data else date(screener_list[-1][0], screener_list[-1][1], screener_list[-1][2])
+    Output("cached-data","data"),
+    Output('my-date-picker-single', 'date'),
 
+    # Output("my-date-picker-single","initial_visible_month"),
+    Input("cached-data","data"),
+    Input('my-date-picker-single', 'date'),
+
+)
+def populateTable(cached_data, picker_date):
+    # print("DEBUG CACHED",cached_data)
+    input_id = ctx.triggered[0]["prop_id"].split(".")[0]
+    print("DEBUG",cached_data, picker_date, ctx.triggered)
+    selected_date = None
+    if not cached_data and not picker_date or not input_id:
+        selected_date = date.fromisoformat(cached_data["date"]) if cached_data else date(screener_list[-1][0], screener_list[-1][1], screener_list[-1][2])
+    else:
+        selected_date = date.fromisoformat(cached_data["date"]) if input_id == "cached-data" else date.fromisoformat(picker_date)
+    
     year,month,day = selected_date.year,selected_date.month,selected_date.day
     index = bisect_left(screener_list, (year,month,day))
     if index == len(screener_list): year,month,day = screener_list[-1]
@@ -97,7 +108,7 @@ def populateTable(cached_data):
     df = pd.read_csv(path)
     df.insert(loc=0, column='Rank', value=range(1,len(df)+1))
 
-    return f"Showing {year}-{month:02}-{day:02}",df.to_dict('records'), [{"name": i, "id": i} for i in df.columns],[], None, selected_date
+    return f"Showing {year}-{month:02}-{day:02}",df.to_dict('records'), [{"name": i, "id": i} for i in df.columns],[], None, {"date":selected_date}, date(year,month,day)
 
 
 @callback(

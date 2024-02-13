@@ -88,7 +88,7 @@ layout = html.Div([
         dbc.Col(dcc.Dropdown(
             id="ticker-dynamic-dropdown",
             options=sorted([k for k in csv_map]),
-            value="AAPL"
+            # value="AAPL"
         ), 
         width={"size":2,"offset":1}), 
         dbc.Col(dcc.Dropdown(id="year-dynamic-dropdown"), width={"size":1}),
@@ -204,22 +204,29 @@ def updateExtended(on,fig):
     return fig
 
 @callback(
-    Output("fig", "figure", allow_duplicate=True),
+    Output("cached-visual-data","data"),
     Input("ticker-dynamic-dropdown","value"),
     Input("year-dynamic-dropdown","value"),
     Input("month-dynamic-dropdown","value"),
-    State("extended-hours-switch","on"),
+    State("cached-visual-data","data"),
+)
+def updateFigureData(ticker,year,month,data):
+    print("DEBUG FIGURE DATA",ticker,year,month)
+    if ticker and year and month:
+        return {"ticker":ticker, "year":year, "month":month}
+    return data
+@callback(
+    Output("fig", "figure", allow_duplicate=True),
+    Input("cached-visual-data","data"),
     prevent_initial_call=True,
 )
-def updateFigure(ticker,year,month,on):
+def populateFigure(data):
+    print("DEBUG POPULATE",data)
+    ticker,year,month = data["ticker"], data["year"], data["month"]
     CSV_PATH = "/Users/jinlee/Desktop/Codes/Python Codes/stock_data_scraper/StockData/{}_{:d}-{:02d}.csv".format(ticker,year,month)
-    # print("DEBUG:",CSV_PATH, on)
-    
-    # fig = px.line(df, x = 'timestamp', y = 'close', custom_data=["open","high","low","volume"], title=ticker, render_mode="svg",height=800)
     fig = createFig(CSV_PATH,ticker)
-    # print("DEBUG",fig)
-    # return updateExtended(on)
     return fig
+
 
 @callback(
     Output("graph-tooltip", "show"),
@@ -314,13 +321,14 @@ def calculatePercentChange(data,fig):
     Output("fig", "figure",allow_duplicate=True),
     Input("fig", "relayoutData"),
     State("fig","figure"),
+    State("cached-visual-data","data"),
     prevent_initial_call = True,
 )
-def scaleYaxis(rng,fig):
+def scaleYaxis(rng,fig,data):
     # print("DEBUG SCALEYAXIS:",rng,bool(fig))  
     # print(df, fig["data"][0]["x"])
     if not fig: 
-        print("DEBUG FIG NOT FOUND")
+        print("DEBUG FIG NOT FOUND",data)
         ticker, selected_date = 'AAPL', "2023-02"
         CSV_PATH = "/Users/jinlee/Desktop/Codes/Python Codes/stock_data_scraper/StockData/{}_{}.csv".format(ticker,selected_date)
         fig = createFig(CSV_PATH,ticker)
