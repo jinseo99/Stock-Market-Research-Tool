@@ -60,21 +60,6 @@ layout = html.Div([
 
 ])
 
-# @callback(
-#     Output("cached-data","data"),
-#     Input('my-date-picker-single', 'date'),
-#     State("cached-data","data"),
-
-# )
-# def update_output(selected_date, cached_data):
-#     # print("DEBUG DATEPICKER", selected_date, cached_data)
-#     if selected_date:
-#         selected_date = date.fromisoformat(selected_date)
-#         year,month,day = selected_date.year,selected_date.month,selected_date.day
-#         cur_date = date(year,month,day)
-#         return {"date":cur_date}
-#     return cached_data
-
 @callback(
     Output('output-container-date-picker-single', 'children'),
     Output('screener-datatable', 'data'),
