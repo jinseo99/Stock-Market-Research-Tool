@@ -104,12 +104,12 @@ layout = html.Div([
         dbc.Col(dcc.Loading(id="output-loading",children = [html.Plaintext(id="download-message",)]),width={"size":3})
         # dbc.Col(html.Plaintext(id="download-message",),width={"size":2})
     ],style={"margin-top": "50px"}),
-    dcc.Store(id='cached-visual-data',storage_type="local"),
+    dcc.Store(id='cached-visual-data',storage_type="session"),
 ])
 
 @callback(
     Output("output-loading", "children",allow_duplicate=True),
-    Output("ticker-dynamic-dropdown","options"),
+    Output("ticker-dynamic-dropdown","options",allow_duplicate=True),
     Output("year-dynamic-dropdown","options", allow_duplicate=True),
     Output("month-dynamic-dropdown","options", allow_duplicate=True),
     Input("reload-button","n_clicks"),
@@ -150,7 +150,7 @@ def downloadClicked(button,ticker,date):
     Input("ticker-dynamic-dropdown","value"),
 )
 def updateYearDropDown(ticker):
-    # print("DEBUG YEAR",ticker)
+    print("DEBUG YEAR",ticker)
     if not ticker: raise PreventUpdate
     return sorted([k for k in csv_map[ticker]])
 
@@ -160,23 +160,31 @@ def updateYearDropDown(ticker):
     State("ticker-dynamic-dropdown","value"),
 )
 def updateMonthDropDown(year,ticker):
-    # print("DEBUG month",ticker, year)
+    print("DEBUG month",ticker, year)
     if not year: raise PreventUpdate
     return sorted([k for k in csv_map[ticker][year]])
 
 @callback(
-    Output("year-dynamic-dropdown", "value"),
+    Output("year-dynamic-dropdown", "value",allow_duplicate=True),
     Input("year-dynamic-dropdown","options"),
+    prevent_initial_call=True
+
 )
 def setYearValue(options):
+    print("DEBUG set Year")
+
     if not options: raise PreventUpdate
     return options[0]
 
 @callback(
-    Output("month-dynamic-dropdown", "value"),
+    Output("month-dynamic-dropdown", "value", allow_duplicate=True),
     Input("month-dynamic-dropdown","options"),
+    prevent_initial_call=True
+
 )
 def setMonthValue(options):
+    print("DEBUG set Month")
+
     if not options: raise PreventUpdate
     return options[0]
 
@@ -187,6 +195,7 @@ def setMonthValue(options):
     prevent_initial_call=True
 )
 def updateHoliday(on,fig):
+    print("DEBUG Holiday")
     if on: fig["layout"]["xaxis"]["rangebreaks"][0]["values"] = ALL_HOLIDAYS
     else: fig["layout"]["xaxis"]["rangebreaks"][0]["values"] = []
     return fig
@@ -199,33 +208,47 @@ def updateHoliday(on,fig):
     prevent_initial_call=True
 )
 def updateExtended(on,fig):
+    print("DEBUG Extended")
     if on: fig["layout"]["xaxis"]["rangebreaks"][-1]["bounds"] = [20,4]
     else: fig["layout"]["xaxis"]["rangebreaks"][-1]["bounds"] = [16,9.5]
     return fig
 
+# @callback(
+#     Output("cached-visual-data","data"),
+#     Input("ticker-dynamic-dropdown","value"),
+#     Input("year-dynamic-dropdown","value"),
+#     Input("month-dynamic-dropdown","value"),
+#     State("cached-visual-data","data"),
+# )
+# def updateFigureData(ticker,year,month,data):
+#     print("DEBUG FIGURE DATA",ticker,year,month)
+#     if ticker and year and month:
+#         return {"ticker":ticker, "year":year, "month":month}
+#     return data
 @callback(
+    Output("fig", "figure"),
     Output("cached-visual-data","data"),
-    Input("ticker-dynamic-dropdown","value"),
-    Input("year-dynamic-dropdown","value"),
-    Input("month-dynamic-dropdown","value"),
-    State("cached-visual-data","data"),
-)
-def updateFigureData(ticker,year,month,data):
-    print("DEBUG FIGURE DATA",ticker,year,month)
-    if ticker and year and month:
-        return {"ticker":ticker, "year":year, "month":month}
-    return data
-@callback(
-    Output("fig", "figure", allow_duplicate=True),
+    Output("ticker-dynamic-dropdown","value"),
+    Output("year-dynamic-dropdown","value"),
+    Output("month-dynamic-dropdown","value"),
     Input("cached-visual-data","data"),
-    prevent_initial_call=True,
+    Input("month-dynamic-dropdown","value"),
+    State("ticker-dynamic-dropdown","value"),
+    State("year-dynamic-dropdown","value"),
+
+    # prevent_initial_call=True,
 )
-def populateFigure(data):
-    print("DEBUG POPULATE",data)
-    ticker,year,month = data["ticker"], data["year"], data["month"]
+def populateFigure(data, month, ticker, year):
+    input_id = ctx.triggered[0]["prop_id"].split(".")[0]
+    print("DEBUG POPULATE",data, ticker, year,month, ctx.triggered[0])
+    if not data and not (ticker or year or month) or not input_id:
+        ticker, year, month = (data["ticker"], data["year"], data["month"]) if data else ("AAPL", 2023, 2)
+    else:
+        if input_id == "cached-visual-data": ticker, year, month = data["ticker"], data["year"], data["month"]
+    print(ticker, year, month)
     CSV_PATH = "/Users/jinlee/Desktop/Codes/Python Codes/stock_data_scraper/StockData/{}_{:d}-{:02d}.csv".format(ticker,year,month)
     fig = createFig(CSV_PATH,ticker)
-    return fig
+    return fig, {"ticker":ticker, "year":year, "month":month}, ticker, year, month
 
 
 @callback(
