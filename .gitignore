@@ -3,6 +3,7 @@ machine_learning/*
 env/*
 .vscode/*
 __pycache__/*
+pages/__pycache__/*
 StockData/*
 Stocks_Analyzer/*
 Analyzer.py
