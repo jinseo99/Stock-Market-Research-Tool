@@ -7,6 +7,7 @@ from os import listdir
 from bisect import bisect_left
 
 dash.register_page(__name__)
+
 cur_date = None
 CSV_DIR = "/Volumes/easystore/screener/"
 def loadScreenerData():
@@ -22,6 +23,9 @@ def loadScreenerData():
 
 screener_list = loadScreenerData()
 screener_list.sort()
+
+average_ranking = pd.read_csv(r"/Volumes/easystore/AverageVolumeRanking.csv")
+average_ranking["Average Rank"] = average_ranking["Average Rank"].round(2)
 
 layout = html.Div([
     html.Div([html.Div([
@@ -47,13 +51,11 @@ layout = html.Div([
         id="screener-datatable",   
         # data=df.to_dict('records'), 
         # columns =[{"name": i, "id": i} for i in df.columns],
-        style_table={'maxWidth': '40%',"margin-top":"10px","margin-left":"5%"},
+        style_table={'maxWidth': '30%',"margin-top":"10px","margin-left":"5%"},
         sort_action='native',
         style_cell_conditional=[
-            {'if': {'column_id': 'Ticker'},
-            'width': '20%'},
-            {'if': {'column_id': '% Change'},
-            'width': '50%'},
+            {'if': {'column_id': 'Volume'},
+            'width': '30%'},
         ]
     ),
     dcc.Store(id='cached-data',storage_type="session"),
@@ -92,7 +94,8 @@ def populateTable(cached_data, picker_date):
     path = CSV_DIR+"Most-Volume_{}-{:02d}-{:02d}.csv".format(year,month,day)
     df = pd.read_csv(path)
     df.insert(loc=0, column='Rank', value=range(1,len(df)+1))
-
+    df["% Change"] = df["% Change"].round(2)
+    df = df.merge(average_ranking, how="outer", left_on=["Ticker"], right_on=["Ticker"])
     return f"Showing {year}-{month:02}-{day:02}",df.to_dict('records'), [{"name": i, "id": i} for i in df.columns],[], None, {"date":selected_date}, date(year,month,day)
 
 

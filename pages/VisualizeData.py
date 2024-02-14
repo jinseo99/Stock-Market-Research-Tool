@@ -6,7 +6,7 @@ import plotly.express as px
 from pathlib import Path
 import sys
 import dash
-from dash import Dash, html, dcc, ctx, no_update, callback
+from dash import Dash, html, dcc, ctx, no_update, callback, clientside_callback
 from dash.dependencies import Output, Input, State
 from os import listdir
 from collections import defaultdict
@@ -105,7 +105,28 @@ layout = html.Div([
         # dbc.Col(html.Plaintext(id="download-message",),width={"size":2})
     ],style={"margin-top": "50px"}),
     dcc.Store(id='cached-visual-data',storage_type="session"),
+    dcc.Store(id="fig-position-data",storage_type="session"),
+    html.Div(id="test-text")
 ])
+
+# clientside_callback(
+#     """
+#     function(data, fig) {
+#         return {"Testing":10};
+#     }
+#     """,
+#     Output('fig-position-data', 'data'),
+#     Input("cached-visual-data","data"),
+#     State('fig', 'figure'),
+# )
+
+# @callback(
+#     Output("test-text","children"),
+#     Input('fig-position-data', 'data'),
+# )
+# def test_text(data):
+#     print("DEBUG TEST",data)
+#     return "TESTING"
 
 @callback(
     Output("output-loading", "children",allow_duplicate=True),
@@ -146,56 +167,13 @@ def downloadClicked(button,ticker,date):
     return ""
 
 @callback(
-    Output("year-dynamic-dropdown", "options"),
-    Input("ticker-dynamic-dropdown","value"),
-)
-def updateYearDropDown(ticker):
-    print("DEBUG YEAR",ticker)
-    if not ticker: raise PreventUpdate
-    return sorted([k for k in csv_map[ticker]])
-
-@callback(
-    Output("month-dynamic-dropdown", "options"),
-    Input("year-dynamic-dropdown","value"),
-    State("ticker-dynamic-dropdown","value"),
-)
-def updateMonthDropDown(year,ticker):
-    print("DEBUG month",ticker, year)
-    if not year: raise PreventUpdate
-    return sorted([k for k in csv_map[ticker][year]])
-
-@callback(
-    Output("year-dynamic-dropdown", "value",allow_duplicate=True),
-    Input("year-dynamic-dropdown","options"),
-    prevent_initial_call=True
-
-)
-def setYearValue(options):
-    print("DEBUG set Year")
-
-    if not options: raise PreventUpdate
-    return options[0]
-
-@callback(
-    Output("month-dynamic-dropdown", "value", allow_duplicate=True),
-    Input("month-dynamic-dropdown","options"),
-    prevent_initial_call=True
-
-)
-def setMonthValue(options):
-    print("DEBUG set Month")
-
-    if not options: raise PreventUpdate
-    return options[0]
-
-@callback(
     Output("fig", "figure", allow_duplicate=True),
     Input('remove-holidays-switch', 'on'),
     State("fig","figure"),
     prevent_initial_call=True
 )
 def updateHoliday(on,fig):
-    print("DEBUG Holiday")
+    # print("DEBUG Holiday")
     if on: fig["layout"]["xaxis"]["rangebreaks"][0]["values"] = ALL_HOLIDAYS
     else: fig["layout"]["xaxis"]["rangebreaks"][0]["values"] = []
     return fig
@@ -208,47 +186,53 @@ def updateHoliday(on,fig):
     prevent_initial_call=True
 )
 def updateExtended(on,fig):
-    print("DEBUG Extended")
+    # print("DEBUG Extended")
     if on: fig["layout"]["xaxis"]["rangebreaks"][-1]["bounds"] = [20,4]
     else: fig["layout"]["xaxis"]["rangebreaks"][-1]["bounds"] = [16,9.5]
     return fig
 
-# @callback(
-#     Output("cached-visual-data","data"),
-#     Input("ticker-dynamic-dropdown","value"),
-#     Input("year-dynamic-dropdown","value"),
-#     Input("month-dynamic-dropdown","value"),
-#     State("cached-visual-data","data"),
-# )
-# def updateFigureData(ticker,year,month,data):
-#     print("DEBUG FIGURE DATA",ticker,year,month)
-#     if ticker and year and month:
-#         return {"ticker":ticker, "year":year, "month":month}
-#     return data
 @callback(
     Output("fig", "figure"),
     Output("cached-visual-data","data"),
     Output("ticker-dynamic-dropdown","value"),
     Output("year-dynamic-dropdown","value"),
     Output("month-dynamic-dropdown","value"),
+
+    Output("year-dynamic-dropdown","options"),
+    Output("month-dynamic-dropdown","options"),
+
     Input("cached-visual-data","data"),
+    Input("ticker-dynamic-dropdown","value"),
+    Input("year-dynamic-dropdown","value"),
     Input("month-dynamic-dropdown","value"),
-    State("ticker-dynamic-dropdown","value"),
-    State("year-dynamic-dropdown","value"),
+    State("year-dynamic-dropdown","options"),
+    State("month-dynamic-dropdown","options"),
+
 
     # prevent_initial_call=True,
 )
-def populateFigure(data, month, ticker, year):
+def populateFigure(data, ticker, year, month,year_options, month_options):
     input_id = ctx.triggered[0]["prop_id"].split(".")[0]
     print("DEBUG POPULATE",data, ticker, year,month, ctx.triggered[0])
     if not data and not (ticker or year or month) or not input_id:
         ticker, year, month = (data["ticker"], data["year"], data["month"]) if data else ("AAPL", 2023, 2)
+        year_options = sorted([k for k in csv_map[ticker]])
+        month_options = sorted([k for k in csv_map[ticker][year]]) 
+
     else:
-        if input_id == "cached-visual-data": ticker, year, month = data["ticker"], data["year"], data["month"]
-    print(ticker, year, month)
+        if input_id == "cached-visual-data":
+            ticker, year, month = data["ticker"], data["year"], data["month"]
+
+        if input_id == "ticker-dynamic-dropdown":
+            year_options = sorted([k for k in csv_map[ticker]])
+            year = year_options[0]
+        if input_id == "year-dynamic-dropdown" or input_id == "ticker-dynamic-dropdown":
+            month_options = sorted([k for k in csv_map[ticker][year]]) 
+            month = month_options[0]
+
     CSV_PATH = "/Users/jinlee/Desktop/Codes/Python Codes/stock_data_scraper/StockData/{}_{:d}-{:02d}.csv".format(ticker,year,month)
     fig = createFig(CSV_PATH,ticker)
-    return fig, {"ticker":ticker, "year":year, "month":month}, ticker, year, month
+    return fig, {"ticker":ticker, "year":year, "month":month}, ticker, year, month, year_options, month_options
 
 
 @callback(
@@ -321,7 +305,7 @@ def calculatePercentChange(data,fig):
         }),
         html.Div([
             html.P(
-                children=f"{close}",
+                children=f"{close:.2f}",
                 style={
                     "padding":"5px",
                     "border-radius":"5%",
@@ -351,9 +335,9 @@ def scaleYaxis(rng,fig,data):
     # print("DEBUG SCALEYAXIS:",rng,bool(fig))  
     # print(df, fig["data"][0]["x"])
     if not fig: 
-        print("DEBUG FIG NOT FOUND",data)
-        ticker, selected_date = 'AAPL', "2023-02"
-        CSV_PATH = "/Users/jinlee/Desktop/Codes/Python Codes/stock_data_scraper/StockData/{}_{}.csv".format(ticker,selected_date)
+        # print("DEBUG FIG NOT FOUND",data)
+        ticker, year, month = (data["ticker"], data["year"], data["month"]) if data else ('AAPL', 2023, 2)
+        CSV_PATH = "/Users/jinlee/Desktop/Codes/Python Codes/stock_data_scraper/StockData/{}_{:d}-{:02d}.csv".format(ticker,year,month)
         fig = createFig(CSV_PATH,ticker)
     if rng and "xaxis.autorange" in rng:
         # print("AUTORANGE INITIATE")
