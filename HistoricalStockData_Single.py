@@ -32,7 +32,7 @@ def download(ticker, selected_date):
         
     url_content = req.content
 
-    path = r'/Users/jinlee/Desktop/Codes/Python Codes/stock_data_scraper/StockData/'+ ticker + '_' + selected_date+ '.csv'
+    path = r'/Volumes/easystore/ProjectGRT/StockData/'+ ticker + '_' + selected_date+ '.csv'
     print(path)
     file_path = Path(path)
     csv_file = open(file_path, 'wb')

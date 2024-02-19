@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="en-CA">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="Au/rO0LZ4O4v4w/X5EVviSE5R8rYeBZLlFQ/bnO7UvokjKTjbgbg6arj/oq4lRJHk7nI/NOlRetOK+siM03uXAsAAABueyJvcmlnaW4iOiJodHRwczovL2dvb2dsZS5jYTo0NDMiLCJmZWF0dXJlIjoiTG9uZ0FuaW1hdGlvbkZyYW1lVGltaW5nIiwiZXhwaXJ5IjoxNzA5NjgzMTk5LCJpc1N1YmRvbWFpbiI6dHJ1ZX0=" http-equiv="origin-trial"/>
+  <meta content="/images/branding/googleg/1x/googleg_standard_color_128dp.png" itemprop="image"/>
+  <title>
+   hkd - Google Search
+  </title>
+  <script nonce="pF00yBBNb_ML2GmR9zwBxA">
+   (function(){
+document.documentElement.addEventListener("submit",function(b){var a;if(a=b.target){var c=a.getAttribute("data-submitfalse");a="1"===c||"q"===c&&!a.elements.q.value?!0:!1}else a=!1;a&&(b.preventDefault(),b.stopPropagation())},!0);document.documentElement.addEventListener("click",function(b){var a;a:{for(a=b.target;a&&a!==document.documentElement;a=a.parentElement)if("A"===a.tagName){a="1"===a.getAttribute("data-nohref");break a}a=!1}a&&b.preventDefault()},!0);}).call(this);(function(){var a=window.performance;window.start=Date.now();a:{var b=window;if(a){var c=a.timing;if(c){var d=c.navigationStart,f=c.responseStart;if(f>d&&f<=window.start){window.start=f;b.wsrt=f-d;break a}}a.now&&(b.wsrt=Math.floor(a.now()))}}window.google=window.google||{};var h=function(g){g&&g.target.setAttribute("data-iml",String(Date.now()))};document.documentElement.addEventListener("load",h,!0);google.rglh=function(){document.documentElement.removeEventListener("load",h,!0)};}).call(this);(function(){window.google.erd={jsr:1,bv:1957,de:true};})();(function(){var sdo=false;var mei=10;
+var h=this||self;var k,l=null!=(k=h.mei)?k:1,n,p=null!=(n=h.sdo)?n:!0,q=0,r,t=google.erd,v=t.jsr;google.ml=function(a,b,d,m,e){e=void 0===e?2:e;b&&(r=a&&a.message);void 0===d&&(d={});d.cad="ple_"+google.ple+".aple_"+google.aple;if(google.dl)return google.dl(a,e,d),null;b=d;if(0>v){window.console&&console.error(a,b);if(-2===v)throw a;b=!1}else b=!a||!a.message||"Error loading script"===a.message||q>=l&&!m?!1:!0;if(!b)return null;q++;d=d||{};b=encodeURIComponent;var c="/gen_204?atyp=i&ei="+b(google.kEI);google.kEXPI&&(c+="&jexpid="+b(google.kEXPI));c+="&srcpg="+b(google.sn)+"&jsr="+b(t.jsr)+"&bver="+
+b(t.bv);var f=a.lineNumber;void 0!==f&&(c+="&line="+f);var g=a.fileName;g&&(0<g.indexOf("-extension:/")&&(e=3),c+="&script="+b(g),f&&g===window.location.href&&(f=document.documentElement.outerHTML.split("\n")[f],c+="&cad="+b(f?f.substring(0,300):"No script found.")));google.ple&&1===google.ple&&(e=2);c+="&jsel="+e;for(var u in d)c+="&",c+=b(u),c+="=",c+=b(d[u]);c=c+"&emsg="+b(a.name+": "+a.message);c=c+"&jsst="+b(a.stack||"N/A");12288<=c.length&&(c=c.substr(0,12288));a=c;m||google.log(0,"",a);return a};window.onerror=function(a,b,d,m,e){r!==a&&(a=e instanceof Error?e:Error(a),void 0===d||"lineNumber"in a||(a.lineNumber=d),void 0===b||"fileName"in a||(a.fileName=b),google.ml(a,!1,void 0,!1,"SyntaxError"===a.name||"SyntaxError"===a.message.substring(0,11)||-1!==a.message.indexOf("Script error")?3:0));r=null;p&&q>=l&&(window.onerror=null)};})();(function(){var c=[],e=0;window.ping=function(b){-1==b.indexOf("&zx")&&(b+="&zx="+Date.now());var a=new Image,d=e++;c[d]=a;a.onerror=a.onload=a.onabort=function(){delete c[d]};a.src=b};}).call(this);
+  </script>
+  <style>
+   a{color:#1a0dab;text-decoration:none;tap-highlight-color:rgba(0,0,0,.10)}a:visited{color:#4b11a8}a:hover{text-decoration:underline}img{border:0}html{font-family:arial,sans-serif;font-size:14px;line-height:20px;text-size-adjust:100%;color:#3c4043;word-wrap:break-word;background-color:#fff}.bRsWnc{background-color:#fff;border-top:1px solid #dadce0;height:39px;overflow:hidden}.N6RWV{height:51px;overflow-scrolling:touch;overflow-x:auto;overflow-y:hidden}.Uv67qb{box-pack:justify;font-size:12px;line-height:37px;justify-content:space-between;justify-content:space-between}.Uv67qb a,.Uv67qb span{color:#70757a;display:block;flex:none;padding:0 16px;text-align:center;text-transform:uppercase;}span.OXXup{border-bottom:2px solid #4285f4;color:#4285f4;font-weight:bold}a.eZt8xd:visited{color:#70757a}.FElbsf{border-left:1px solid rgba(0,0,0,.12)}header article{overflow:visible}.Pg70bf{height:39px;display:box;display:flex;display:flex;width:100%}.H0PQec{position:relative;flex:1}.sbc{display:flex;width:100%}.Pg70bf input{margin:2px 4px 2px 8px;}.x{width:26px;color:#70757a;font:27px/38px arial, sans-serif;line-height:40px;}#qdClwb{flex:0 0 auto;width:39px;height:39px;border-bottom:0;padding:0;border-top-right-radius:8px;background-color:#1a73e8;border:1px solid #1a73e8;background-image:url(data:image/gif;base64,R0lGODdhJAAjAPIHAODr/nCk+MPZ/FmV96zK+/7+/5K5+kqL9iwAAAAAJAAjAEADani63P4wykmbKcQRXDscQAEMXmmeaLQVLCukzyC09AjfeK7v/MAajACLhPMVAgwjsUcEiZa8xgAYrVqv2Kx2iwsIAAABknfBBAKrTE4IcMyot8ur8datqIbQfJdnAfo2WE6BV05wXIiJigkAOw==);}.sc{font-size:16px;position:absolute;top:39px;left:0;right:0;box-shadow:0 2px 5px rgba(0,0,0,.2);z-index:2;background-color:#fff}.sc>div{padding:10px 10px;padding-left:16px;padding-left:14px;border-top:1px solid #dfe1e5;}.scs{background-color:#fafafa;}.noHIxc{display:block;font-size:16px;padding:0 0 0 8px;flex:1;height:35px;outline:none;border:none;width:100%;-webkit-tap-highlight-color:rgba(0,0,0,0);overflow:hidden;}.sbc input[type=text]{background:none}.bz1lBb{background-color:#fff;border-radius:8px 8px 0 0;box-shadow:0 0 0 1px #dfe1e5;margin-top:24px;}.KP7LCb{border-radius:0 0 8px 8px;box-shadow:0px 1px 0px 1px #dfe1e5;margin-bottom:30px;overflow:hidden}html{background-color:#fff}body{margin:0 auto 0 156px;max-width:652px;min-width:652px;padding:0 8px}.cOl4Id{letter-spacing:-1px;text-align:center;font:22pt Futura, Arial, sans-serif;height:37px;font-smoothing:antialiased;padding:32px 28px 0 24px;position:absolute;left:0;top:0}.cOl4Id span{display:inline-block}.V6gwVd{color:#4285f4}.iWkuvd{color:#ea4335}.cDrQ7{color:#fcc934}.ntlR9{color:#34a853}.tJ3Myc{-webkit-transform:rotate(-20deg);position:relative;left:-1px;display:inline-block}footer{text-align:center;margin-top:18px}footer a,footer a:visited,.smiUbb{color:#70757a}.xeDNfc{margin:0 13px;display:inline-block}#EOlPnc{margin-top:36px}#EOlPnc>div{margin:20px}.Srfpq{color:#70757a}
+  </style>
+ </head>
+ <body jsmodel="hspDDf ">
+  <header id="hdr">
+   <script nonce="pF00yBBNb_ML2GmR9zwBxA">
+    (function(){
+var k=this||self,l=function(a){var b=typeof a;return"object"==b&&null!=a||"function"==b},m=function(a,b){function c(){}c.prototype=b.prototype;a.j=b.prototype;a.prototype=new c;a.prototype.constructor=a;a.l=function(d,e,f){for(var g=Array(arguments.length-2),h=2;h<arguments.length;h++)g[h-2]=arguments[h];return b.prototype[e].apply(d,g)}};var n=Array.prototype.indexOf?function(a,b){return Array.prototype.indexOf.call(a,b,void 0)}:function(a,b){if("string"===typeof a)return"string"!==typeof b||1!=b.length?-1:a.indexOf(b,0);for(var c=0;c<a.length;c++)if(c in a&&a[c]===b)return c;return-1};var p=function(a){return"string"==typeof a.className?a.className:a.getAttribute&&a.getAttribute("class")||""},q=function(a,b){"string"==typeof a.className?a.className=b:a.setAttribute&&a.setAttribute("class",b)},r=function(a,b){a.classList?b=a.classList.contains(b):(a=a.classList?a.classList:p(a).match(/\S+/g)||[],b=0<=n(a,b));return b},v=function(){var a=t,b=u;a.classList?a.classList.remove(b):r(a,b)&&q(a,Array.prototype.filter.call(a.classList?a.classList:p(a).match(/\S+/g)||[],function(c){return c!=
+b}).join(" "))};function w(){var a=k.navigator;return a&&(a=a.userAgent)?a:""};var x=function(a){x[" "](a);return a};x[" "]=function(){};var y=-1!=w().indexOf("Gecko")&&!(-1!=w().toLowerCase().indexOf("webkit")&&-1==w().indexOf("Edge"))&&!(-1!=w().indexOf("Trident")||-1!=w().indexOf("MSIE"))&&-1==w().indexOf("Edge");var z=function(a,b){this.type=a;this.target=b};z.prototype.g=function(){};var A=function(){if(!k.addEventListener||!Object.defineProperty)return!1;var a=!1,b=Object.defineProperty({},"passive",{get:function(){a=!0}});try{var c=function(){};k.addEventListener("test",c,b);k.removeEventListener("test",c,b)}catch(d){}return a}();var C=function(a){z.call(this,a?a.type:"");this.relatedTarget=this.target=null;this.button=this.screenY=this.screenX=this.clientY=this.clientX=0;this.key="";this.keyCode=0;this.metaKey=this.shiftKey=this.altKey=this.ctrlKey=!1;this.state=null;this.pointerId=0;this.pointerType="";this.h=null;if(a){var b=this.type=a.type,c=a.changedTouches&&a.changedTouches.length?a.changedTouches[0]:null;this.target=a.target||a.srcElement;var d=a.relatedTarget;if(d){if(y){a:{try{x(d.nodeName);var e=!0;break a}catch(f){}e=
+!1}e||(d=null)}}else"mouseover"==b?d=a.fromElement:"mouseout"==b&&(d=a.toElement);this.relatedTarget=d;c?(this.clientX=void 0!==c.clientX?c.clientX:c.pageX,this.clientY=void 0!==c.clientY?c.clientY:c.pageY,this.screenX=c.screenX||0,this.screenY=c.screenY||0):(this.clientX=void 0!==a.clientX?a.clientX:a.pageX,this.clientY=void 0!==a.clientY?a.clientY:a.pageY,this.screenX=a.screenX||0,this.screenY=a.screenY||0);this.button=a.button;this.keyCode=a.keyCode||0;this.key=a.key||"";this.ctrlKey=a.ctrlKey;this.altKey=a.altKey;this.shiftKey=a.shiftKey;this.metaKey=a.metaKey;this.pointerId=a.pointerId||0;this.pointerType="string"===typeof a.pointerType?a.pointerType:B[a.pointerType]||"";this.state=a.state;this.h=a;a.defaultPrevented&&C.j.g.call(this)}};m(C,z);var B={2:"touch",3:"pen",4:"mouse"};C.prototype.g=function(){C.j.g.call(this);var a=this.h;a.preventDefault?a.preventDefault():a.returnValue=!1};var D="closure_listenable_"+(1E6*Math.random()|0);var E=0;var F=function(a,b,c,d,e){this.listener=a;this.proxy=null;this.src=b;this.type=c;this.capture=!!d;this.h=e;this.key=++E;this.g=this.i=!1},G=function(a){a.g=!0;a.listener=null;a.proxy=null;a.src=null;a.h=null};var H=function(a){this.src=a;this.g={};this.h=0};H.prototype.add=function(a,b,c,d,e){var f=a.toString();a=this.g[f];a||(a=this.g[f]=[],this.h++);var g;a:{for(g=0;g<a.length;++g){var h=a[g];if(!h.g&&h.listener==b&&h.capture==!!d&&h.h==e)break a}g=-1}-1<g?(b=a[g],c||(b.i=!1)):(b=new F(b,this.src,f,!!d,e),b.i=c,a.push(b));return b};var I="closure_lm_"+(1E6*Math.random()|0),J={},K=0,M=function(a,b,c,d,e){if(d&&d.once)return L(a,b,c,d,e);if(Array.isArray(b)){for(var f=0;f<b.length;f++)M(a,b[f],c,d,e);return null}c=N(c);return a&&a[D]?a.g(b,c,l(d)?!!d.capture:!!d,e):O(a,b,c,!1,d,e)},O=function(a,b,c,d,e,f){if(!b)throw Error("a");var g=l(e)?!!e.capture:!!e,h=P(a);h||(a[I]=h=new H(a));c=h.add(b,c,d,g,f);if(c.proxy)return c;d=Q();c.proxy=d;d.src=a;d.listener=c;if(a.addEventListener)A||(e=g),void 0===e&&(e=!1),a.addEventListener(b.toString(),d,e);else if(a.attachEvent)a.attachEvent(R(b.toString()),d);else if(a.addListener&&a.removeListener)a.addListener(d);else throw Error("b");K++;return c},Q=function(){var a=S,b=function(c){return a.call(b.src,b.listener,c)};return b},L=function(a,b,c,d,e){if(Array.isArray(b)){for(var f=0;f<b.length;f++)L(a,b[f],c,d,e);return null}c=N(c);return a&&a[D]?a.h(b,c,l(d)?!!d.capture:!!d,e):O(a,b,c,!0,d,e)},T=function(a){if("number"!==typeof a&&a&&!a.g){var b=a.src;if(b&&b[D])b.s(a);else{var c=a.type,d=a.proxy;b.removeEventListener?b.removeEventListener(c,d,a.capture):b.detachEvent?b.detachEvent(R(c),d):b.addListener&&b.removeListener&&b.removeListener(d);K--;if(c=P(b)){d=a.type;if(d in c.g){var e=c.g[d],f=n(e,a),g;(g=0<=f)&&Array.prototype.splice.call(e,f,1);g&&(G(a),0==c.g[d].length&&(delete c.g[d],c.h--))}0==c.h&&(c.src=null,b[I]=null)}else G(a)}}},R=function(a){return a in J?J[a]:J[a]="on"+a},S=function(a,b){if(a.g)a=!0;else{b=new C(b,this);var c=a.listener,d=a.h||a.src;a.i&&T(a);a=c.call(d,b)}return a},P=function(a){a=a[I];return a instanceof H?a:null},U="__closure_events_fn_"+(1E9*Math.random()>>>0),N=function(a){if("function"===typeof a)return a;a[U]||(a[U]=function(b){return a.handleEvent(b)});return a[U]};var u,t=document.documentElement,V;function W(){T(V);V=L(t,"mousedown",function(){v();X()},{capture:!0})}function X(){T(V);V=M(t,"keydown",function(a){if(9===a.keyCode){a=t;var b=u;if(a.classList)a.classList.add(b);else if(!r(a,b)){var c=p(a);q(a,c+(0<c.length?" "+b:b))}W()}})};u="zAoYTe";X();}).call(this);
+   </script>
+   <div class="cOl4Id">
+    <a href="/?sa=X&amp;ved=0ahUKEwiIwfqooq6EAxWIIzQIHcr-BFMQOwgC">
+     <span class="V6gwVd">
+      G
+     </span>
+     <span class="iWkuvd">
+      o
+     </span>
+     <span class="cDrQ7">
+      o
+     </span>
+     <span class="V6gwVd">
+      g
+     </span>
+     <span class="ntlR9">
+      l
+     </span>
+     <span class="iWkuvd tJ3Myc">
+      e
+     </span>
+    </a>
+   </div>
+   <div class="bz1lBb">
+    <form class="Pg70bf" id="sf">
+     <input name="lr" type="hidden" value="lang_en"/>
+     <input name="sca_esv" type="hidden" value="c24955e436027d1c"/>
+     <input name="biw" type="hidden" value="1920"/>
+     <input name="bih" type="hidden" value="976"/>
+     <input name="tbs" type="hidden" value="lr:lang_1en,sbd:1"/>
+     <input name="tbm" type="hidden" value="nws"/>
+     <div class="H0PQec">
+      <div class="sbc esbc">
+       <input autocapitalize="none" autocomplete="off" class="noHIxc" name="q" spellcheck="false" type="text" value="hkd"/>
+       <input name="oq" type="hidden"/>
+       <input name="aqs" type="hidden"/>
+       <div class="x">
+        ×
+       </div>
+       <div class="sc">
+       </div>
+      </div>
+     </div>
+     <button id="qdClwb" type="submit">
+     </button>
+    </form>
+   </div>
+   <noscript>
+    <meta content="0;url=/search?q=hkd&amp;lr=lang_en&amp;sca_esv=c24955e436027d1c&amp;biw=1920&amp;bih=976&amp;tbs=lr:lang_1en,sbd:1&amp;tbm=nws&amp;gbv=1&amp;sei=Pn_OZYiqO4jH0PEPyv2TmAU" http-equiv="refresh"/>
+    <style>
+     table,div,span,p{display:none}
+    </style>
+    <div style="display:block">
+     Please click
+     <a href="/search?q=hkd&amp;lr=lang_en&amp;sca_esv=c24955e436027d1c&amp;biw=1920&amp;bih=976&amp;tbs=lr:lang_1en,sbd:1&amp;tbm=nws&amp;gbv=1&amp;sei=Pn_OZYiqO4jH0PEPyv2TmAU">
+      here
+     </a>
+     if you are not redirected within a few seconds.
+    </div>
+   </noscript>
+  </header>
+  <div id="main">
+   <div>
+    <div class="KP7LCb">
+     <div class="bRsWnc">
+      <div class="N6RWV">
+       <div class="Pg70bf Uv67qb">
+        <a class="eZt8xd" href="/search?q=hkd&amp;lr=lang_en&amp;sca_esv=c24955e436027d1c&amp;biw=1920&amp;bih=976&amp;source=lnms&amp;sa=X&amp;ved=0ahUKEwiIwfqooq6EAxWIIzQIHcr-BFMQ_AUIBSgA">
+         All
+        </a>
+        <span class="OXXup">
+         News
+        </span>
+        <a class="eZt8xd" href="/search?q=hkd&amp;lr=lang_en&amp;sca_esv=c24955e436027d1c&amp;biw=1920&amp;bih=976&amp;tbs=lr:lang_1en&amp;tbm=isch&amp;source=lnms&amp;sa=X&amp;ved=0ahUKEwiIwfqooq6EAxWIIzQIHcr-BFMQ_AUIBygC">
+         Images
+        </a>
+        <a class="eZt8xd" href="/search?q=hkd&amp;lr=lang_en&amp;sca_esv=c24955e436027d1c&amp;biw=1920&amp;bih=976&amp;tbs=lr:lang_1en&amp;tbm=vid&amp;source=lnms&amp;sa=X&amp;ved=0ahUKEwiIwfqooq6EAxWIIzQIHcr-BFMQ_AUICCgD">
+         Videos
+        </a>
+        <a href="/url?q=https://maps.google.com/maps%3Fq%3Dhkd%26lr%3Dlang_en%26biw%3D1920%26bih%3D976%26um%3D1%26ie%3DUTF-8&amp;opi=89978449&amp;sa=U&amp;ved=0ahUKEwiIwfqooq6EAxWIIzQIHcr-BFMQiaAMCAkoBA&amp;usg=AOvVaw3tdjToH33nFHD64lFOX-HE">
+         Maps
+        </a>
+        <a href="/url?q=/search%3Fq%3Dhkd%26lr%3Dlang_en%26sca_esv%3Dc24955e436027d1c%26biw%3D1920%26bih%3D976%26tbs%3Dlr:lang_1en%26tbm%3Dshop%26source%3Dlnms&amp;opi=89978449&amp;sa=U&amp;ved=0ahUKEwiIwfqooq6EAxWIIzQIHcr-BFMQiaAMCAooBQ&amp;usg=AOvVaw17sboTK9AkAgR1yzRzgoi_">
+         Shopping
+        </a>
+        <a href="/search?q=hkd&amp;lr=lang_en&amp;sca_esv=c24955e436027d1c&amp;biw=1920&amp;bih=976&amp;tbs=lr:lang_1en,sbd:1&amp;tbm=bks&amp;source=lnms&amp;sa=X&amp;ved=0ahUKEwiIwfqooq6EAxWIIzQIHcr-BFMQ_AUICygG">
+         Books
+        </a>
+        <div class="FElbsf">
+         <a href="/advanced_search" id="st-toggle" role="button" style="white-space:nowrap">
+          Search tools
+         </a>
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+    <div class="Pg70bf wEsjbd Gx5Zad xpd EtOod pkphOe" id="st-card">
+     <style>
+      .wEsjbd{background-color:#fff;height:44px;white-space:nowrap}.coPU8c{height:60px;overflow-scrolling:touch;overflow-x:auto;overflow-y:hidden}.Xj2aue{height:44px;overflow:hidden}.RnNGze{margin:11px 16px}.wEsjbd div,.wEsjbd a,.wEsjbd li{outline-width:0;outline:none}
+     </style>
+     <div class="Xj2aue">
+      <div class="coPU8c">
+       <div class="RnNGze">
+        <style>
+         .PA9J5{display:inline-block}.RXaOfd{display:inline-block;height:22px;position:relative;padding-top:0;padding-bottom:0;padding-right:16px;padding-left:0;line-height:22px;cursor:pointer;text-transform:uppercase;font-size:12px;color:#70757a}.sa1toc{background:#fff;display:none;position:absolute;border:1px solid #dadce0;box-shadow:0 2px 4px rgba(0,0,0,.3);margin:0;white-space:nowrap;z-index:103;line-height:17px;padding-top:5px;padding-bottom:5px;padding-left:0}.PA9J5:hover .sa1toc{display:block}.mGSy8d a:active,.RXaOfd:active{color:#4285f4}
+        </style>
+        <div class="PA9J5">
+         <div class="RXaOfd" role="button" tabindex="0">
+          <style>
+           .TWMOUc{display:inline-block;padding-right:14px;white-space:nowrap}.vQYuGf{font-weight:bold}.OmTIzf{border-color:#909090 transparent;border-style:solid;border-width:4px 4px 0 4px;width:0;height:0;margin-left:-10px;top:50%;margin-top:-2px;position:absolute}.RXaOfd:active .OmTIzf{border-color:#4285f4 transparent}
+          </style>
+          <div class="TWMOUc">
+           Recent
+          </div>
+          <span class="OmTIzf">
+          </span>
+         </div>
+         <ul class="sa1toc ozatM">
+          <style>
+           .ozatM{font-size:12px;text-transform:uppercase}.ozatM .yNFsl,.ozatM li{list-style-type:none;list-style-position:outside;list-style-image:none}.yNFsl.SkUj4c,.yNFsl a{color:#70757a;text-decoration:none;padding:6px 44px 6px 14px;line-height:17px;display:block}.SkUj4c{background-image:url(//ssl.gstatic.com/ui/v1/menu/checkmark2.png);background-position:right center;background-repeat:no-repeat}.SkUj4c:active{background-color:#f8f9fa}
+          </style>
+          <li class="yNFsl SkUj4c">
+           Recent
+          </li>
+          <li class="yNFsl">
+           <a href="/search?q=hkd&amp;lr=lang_en&amp;sca_esv=c24955e436027d1c&amp;biw=1920&amp;bih=976&amp;tbs=lr:lang_1en,sbd:1,qdr:h&amp;tbm=nws&amp;source=lnt&amp;sa=X&amp;ved=0ahUKEwiIwfqooq6EAxWIIzQIHcr-BFMQpwUIDQ">
+            Past hour
+           </a>
+          </li>
+          <li class="yNFsl">
+           <a href="/search?q=hkd&amp;lr=lang_en&amp;sca_esv=c24955e436027d1c&amp;biw=1920&amp;bih=976&amp;tbs=lr:lang_1en,sbd:1,qdr:d&amp;tbm=nws&amp;source=lnt&amp;sa=X&amp;ved=0ahUKEwiIwfqooq6EAxWIIzQIHcr-BFMQpwUIDg">
+            Past 24 hours
+           </a>
+          </li>
+          <li class="yNFsl">
+           <a href="/search?q=hkd&amp;lr=lang_en&amp;sca_esv=c24955e436027d1c&amp;biw=1920&amp;bih=976&amp;tbs=lr:lang_1en,sbd:1,qdr:w&amp;tbm=nws&amp;source=lnt&amp;sa=X&amp;ved=0ahUKEwiIwfqooq6EAxWIIzQIHcr-BFMQpwUIDw">
+            Past week
+           </a>
+          </li>
+          <li class="yNFsl">
+           <a href="/search?q=hkd&amp;lr=lang_en&amp;sca_esv=c24955e436027d1c&amp;biw=1920&amp;bih=976&amp;tbs=lr:lang_1en,sbd:1,qdr:m&amp;tbm=nws&amp;source=lnt&amp;sa=X&amp;ved=0ahUKEwiIwfqooq6EAxWIIzQIHcr-BFMQpwUIEA">
+            Past month
+           </a>
+          </li>
+          <li class="yNFsl">
+           <a href="/search?q=hkd&amp;lr=lang_en&amp;sca_esv=c24955e436027d1c&amp;biw=1920&amp;bih=976&amp;tbs=lr:lang_1en,sbd:1,qdr:y&amp;tbm=nws&amp;source=lnt&amp;sa=X&amp;ved=0ahUKEwiIwfqooq6EAxWIIzQIHcr-BFMQpwUIEQ">
+            Past year
+           </a>
+          </li>
+          <li class="yNFsl">
+           <a href="/search?q=hkd&amp;lr=lang_en&amp;sca_esv=c24955e436027d1c&amp;biw=1920&amp;bih=976&amp;tbs=lr:lang_1en,sbd:1,ar:1&amp;tbm=nws&amp;source=lnt&amp;sa=X&amp;ved=0ahUKEwiIwfqooq6EAxWIIzQIHcr-BFMQpwUIEg">
+            Archives
+           </a>
+          </li>
+         </ul>
+        </div>
+        <div class="PA9J5">
+         <div class="RXaOfd vQYuGf" role="button" tabindex="0">
+          <div class="TWMOUc">
+           Sorted by date
+          </div>
+          <span class="OmTIzf">
+          </span>
+         </div>
+         <ul class="sa1toc ozatM">
+          <li class="yNFsl">
+           <a href="/search?q=hkd&amp;lr=lang_en&amp;sca_esv=c24955e436027d1c&amp;biw=1920&amp;bih=976&amp;tbs=lr:lang_1en&amp;tbm=nws&amp;tbas=0&amp;source=lnt&amp;sa=X&amp;ved=0ahUKEwiIwfqooq6EAxWIIzQIHcr-BFMQpwUIEw">
+            Sorted by relevance
+           </a>
+          </li>
+          <li class="yNFsl SkUj4c">
+           Sorted by date
+          </li>
+         </ul>
+        </div>
+       </div>
+      </div>
+     </div>
+     <script nonce="pF00yBBNb_ML2GmR9zwBxA">
+      (function(){var a=document.getElementById("st-toggle"),b=document.getElementById("st-card");a&&b&&a.addEventListener("click",function(c){b.style.display=b.style.display?"":"none";c.preventDefault()},!1);}).call(this);
+     </script>
+    </div>
+   </div>
+   <style>
+    .Gx5Zad{background-color:#fff;margin-bottom:30px;box-shadow:0 0 0 1px #dfe1e5;border-radius:8px}.pkphOe{font-size:14px;line-height:22px;}.EtOod>*:first-child{border-top-left-radius:8px;border-top-right-radius:8px}.EtOod>*:last-child{border-bottom-left-radius:8px;border-bottom-right-radius:8px}.EtOod.avPKgf>*:last-child{border-bottom-left-radius:4px}.EtOod>.qxDOhb>*:first-child{border-top-left-radius:8px;border-top-right-radius:8px}.EtOod>.qxDOhb>*:last-child{border-bottom-left-radius:8px;border-bottom-right-radius:8px}.fP1Qef{background:transparent !important;box-shadow:none !important;border:none !important}.Gx5Zad.fP1Qef{margin-top:-12px;margin-bottom:18px}a.fdYsqf{color:#4b11a8}.rl7ilb{display:block;clear:both}.egMi0{margin-bottom:-19px}.kCrYT{padding:12px 16px 12px}.sCuL3{position:absolute;width:100%;top:0;left:0;padding-top:1px;margin-bottom:-1px}.j039Wc{padding-top:28px;margin-bottom:-1px}.DnJfK{position:relative}.l97dzf{font-weight:400}.zBAuLc{line-height:normal;margin:0;padding:0}.BNeawe{white-space:pre-line;word-wrap:break-word}.vvjwJb{color:#1a0dab;font-size:20px;line-height:26px}a:visited .vvjwJb,.vvjwJb a:visited{color:#4b11a8}.vvjwJb.HrGdeb{color:#fff}a:visited .vvjwJb.HrGdeb,.vvjwJb.HrGdeb a:visited{color:rgba(255,255,255,.70)}.UPmit{font-size:14px;line-height:22px}.UPmit.HrGdeb{color:rgba(255,255,255,.70)}.UPmit.AP7Wnd{color:#202124}.lRVwie{text-overflow:ellipsis;white-space:nowrap;overflow:hidden}.lcJF1d{border-radius:8px;margin-left:16px;float:right;}.h1hFNe{display:inline-block;position:relative}.Q6Xouf{overflow:hidden}.G6SP0b{display:inline-block}.eeoFaf{position:relative}.Ap5OSd{padding-bottom:12px}.s3v9rd{font-size:14px;line-height:22px}.s3v9rd.HrGdeb{color:#fff}.s3v9rd.AP7Wnd{color:#202124}.r0bn4c.tr0dw{color:rgba(255,255,255,.70)}.r0bn4c.rQMQod{color:#70757a}.rLshyf,.BmP5tf{padding-top:12px;padding-bottom:12px}.YOx3Ab{padding-left:16px;}.w1C3Le,.BmP5tf,.G5NbBd,.CS4w5b{padding-left:16px;padding-right:16px;}.G5NbBd{padding-bottom:12px}.CS4w5b{padding-top:12px}.nMymef{display:flex}.G5eFlf{flex:1;display:block}.nMymef span{text-align:center}.EYqSq{margin:6px 4px 9px 0;border-radius:100%;display:inline-block;height:10px;vertical-align:middle;width:10px}.dfB0uf{color:#3c4043;font-weight:bold}.IffyKc{word-wrap:break-word}
+   </style>
+   <div>
+   </div>
+   <div>
+    <div class="Gx5Zad fP1Qef xpd EtOod pkphOe">
+     <a data-ved="2ahUKEwiIwfqooq6EAxWIIzQIHcr-BFMQxfQBegQIBBAC" href="/url?q=https://uk.investing.com/news/stock-market-news/hkd--analyzing-amtd-digitals-short-interest-3339916&amp;sa=U&amp;ved=2ahUKEwiIwfqooq6EAxWIIzQIHcr-BFMQxfQBegQIBBAC&amp;usg=AOvVaw0uphC-MwCkISNNhwpvY_fL">
+      <div class="egMi0 kCrYT">
+       <div class="DnJfK">
+        <div class="j039Wc">
+         <h3 class="zBAuLc l97dzf">
+          <div class="BNeawe vvjwJb AP7Wnd">
+           (HKD) - Analyzing AMTD Digital's Short Interest By Benzinga
+          </div>
+         </h3>
+        </div>
+        <div class="sCuL3">
+         <div class="BNeawe UPmit AP7Wnd lRVwie">
+          Investing.com UK
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="kCrYT">
+       <div class="lcJF1d Q6Xouf G6SP0b">
+        <div style="width:120px;height:66px;position:static">
+         <img alt="" class="h1hFNe" data-deferred="1" id="dimg_8" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="width:120px;height:66px"/>
+        </div>
+       </div>
+       <div>
+        <div class="BNeawe s3v9rd AP7Wnd">
+         <div>
+          <div class="BNeawe s3v9rd AP7Wnd">
+           Benzinga - by Benzinga Insights, Benzinga Staff Writer. AMTD Digital's (NYSE:HKD) short percent of float has fallen 13.16% since its last report.
+           <br/>
+           <span class="r0bn4c rQMQod">
+            5 hours ago
+           </span>
+          </div>
+         </div>
+        </div>
+       </div>
+       <div class="rl7ilb">
+       </div>
+      </div>
+     </a>
+    </div>
+   </div>
+   <div>
+    <div class="Gx5Zad fP1Qef xpd EtOod pkphOe">
+     <a data-ved="2ahUKEwiIwfqooq6EAxWIIzQIHcr-BFMQxfQBegQICRAC" href="/url?q=https://www.marketscreener.com/quote/stock/AMTD-DIGITAL-INC-124598198/news/AMTD-Digital-Board-Authorizes-20-Million-Share-Repurchase-Program-45952167/&amp;sa=U&amp;ved=2ahUKEwiIwfqooq6EAxWIIzQIHcr-BFMQxfQBegQICRAC&amp;usg=AOvVaw24srldXzKdKe4Cdb9WQCyJ">
+      <div class="egMi0 kCrYT">
+       <div class="DnJfK">
+        <div class="j039Wc">
+         <h3 class="zBAuLc l97dzf">
+          <div class="BNeawe vvjwJb AP7Wnd">
+           AMTD Digital Board Authorizes $20 Million Share Repurchase Program
+          </div>
+         </h3>
+        </div>
+        <div class="sCuL3">
+         <div class="BNeawe UPmit AP7Wnd lRVwie">
+          MarketScreener
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="kCrYT">
+       <div class="lcJF1d Q6Xouf G6SP0b">
+        <div style="width:120px;height:68px;position:static">
+         <img alt="" class="h1hFNe" data-deferred="1" id="dimg_19" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="width:120px;height:68px"/>
+        </div>
+       </div>
+       <div>
+        <div class="BNeawe s3v9rd AP7Wnd">
+         <div>
+          <div class="BNeawe s3v9rd AP7Wnd">
+           AMTD Digital said Wednesday its board has approved the repurchase of up to $20 million of the company's American depositary share or ordinary shares.
+           <br/>
+           <span class="r0bn4c rQMQod">
+            1 day ago
+           </span>
+          </div>
+         </div>
+        </div>
+       </div>
+       <div class="rl7ilb">
+       </div>
+      </div>
+     </a>
+    </div>
+   </div>
+   <div>
+    <div class="Gx5Zad fP1Qef xpd EtOod pkphOe">
+     <a data-ved="2ahUKEwiIwfqooq6EAxWIIzQIHcr-BFMQxfQBegQIBhAC" href="/url?q=https://www.marketbeat.com/instant-alerts/nyse-hkd-volume-advance-2024-02-14/&amp;sa=U&amp;ved=2ahUKEwiIwfqooq6EAxWIIzQIHcr-BFMQxfQBegQIBhAC&amp;usg=AOvVaw1wYlGswpLfkEwT2nRc9zgQ">
+      <div class="egMi0 kCrYT">
+       <div class="DnJfK">
+        <div class="j039Wc">
+         <h3 class="zBAuLc l97dzf">
+          <div class="BNeawe vvjwJb AP7Wnd">
+           AMTD Digital (NYSE:HKD) Sees Unusually-High Trading Volume
+          </div>
+         </h3>
+        </div>
+        <div class="sCuL3">
+         <div class="BNeawe UPmit AP7Wnd lRVwie">
+          MarketBeat
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="kCrYT">
+       <div class="lcJF1d Q6Xouf G6SP0b">
+        <div style="width:120px;height:66px;position:static">
+         <img alt="" class="h1hFNe" data-deferred="1" id="dimg_5" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="width:120px;height:66px"/>
+        </div>
+       </div>
+       <div>
+        <div class="BNeawe s3v9rd AP7Wnd">
+         <div>
+          <div class="BNeawe s3v9rd AP7Wnd">
+           Shares of AMTD Digital Inc. (NYSE:HKD - Get Free Report) saw unusually-high trading volume on Wednesday . Approximately 285,630 shares traded hands during...
+           <br/>
+           <span class="r0bn4c rQMQod">
+            1 day ago
+           </span>
+          </div>
+         </div>
+        </div>
+       </div>
+       <div class="rl7ilb">
+       </div>
+      </div>
+     </a>
+    </div>
+   </div>
+   <div>
+    <div class="Gx5Zad fP1Qef xpd EtOod pkphOe">
+     <a data-ved="2ahUKEwiIwfqooq6EAxWIIzQIHcr-BFMQxfQBegQIAxAC" href="/url?q=https://www.investing.com/news/stock-market-news/amtd-digital-initiates-20-million-share-repurchase-93CH-3303599&amp;sa=U&amp;ved=2ahUKEwiIwfqooq6EAxWIIzQIHcr-BFMQxfQBegQIAxAC&amp;usg=AOvVaw1Lcueaw2HqZaINk8M0J_Ut">
+      <div class="egMi0 kCrYT">
+       <div class="DnJfK">
+        <div class="j039Wc">
+         <h3 class="zBAuLc l97dzf">
+          <div class="BNeawe vvjwJb AP7Wnd">
+           AMTD Digital initiates $20 million share repurchase By Investing.com
+          </div>
+         </h3>
+        </div>
+        <div class="sCuL3">
+         <div class="BNeawe UPmit AP7Wnd lRVwie">
+          Investing.com
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="kCrYT">
+       <div class="lcJF1d Q6Xouf G6SP0b">
+        <div style="width:120px;height:66px;position:static">
+         <img alt="" class="h1hFNe" data-deferred="1" id="dimg_15" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="width:120px;height:66px"/>
+        </div>
+       </div>
+       <div>
+        <div class="BNeawe s3v9rd AP7Wnd">
+         <div>
+          <div class="BNeawe s3v9rd AP7Wnd">
+           PARIS &amp; NEW YORK - AMTD Digital Inc. (NYSE:HKD), a comprehensive digital solutions provider, has announced the launch of a share repurchase program,...
+           <br/>
+           <span class="r0bn4c rQMQod">
+            1 day ago
+           </span>
+          </div>
+         </div>
+        </div>
+       </div>
+       <div class="rl7ilb">
+       </div>
+      </div>
+     </a>
+    </div>
+   </div>
+   <div>
+    <div class="Gx5Zad fP1Qef xpd EtOod pkphOe">
+     <a data-ved="2ahUKEwiIwfqooq6EAxWIIzQIHcr-BFMQxfQBegQIABAC" href="/url?q=https://www.marketscreener.com/quote/stock/AMTD-DIGITAL-INC-124598198/news/AMTD-Digital-Announces-a-New-Share-Repurchase-Program-45950449/&amp;sa=U&amp;ved=2ahUKEwiIwfqooq6EAxWIIzQIHcr-BFMQxfQBegQIABAC&amp;usg=AOvVaw0lO49pJoKn4l7xV0ExHrXB">
+      <div class="egMi0 kCrYT">
+       <div class="DnJfK">
+        <div class="j039Wc">
+         <h3 class="zBAuLc l97dzf">
+          <div class="BNeawe vvjwJb AP7Wnd">
+           AMTD Digital Announces a New Share Repurchase Program
+          </div>
+         </h3>
+        </div>
+        <div class="sCuL3">
+         <div class="BNeawe UPmit AP7Wnd lRVwie">
+          MarketScreener
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="kCrYT">
+       <div class="lcJF1d Q6Xouf G6SP0b">
+        <div style="width:120px;height:68px;position:static">
+         <img alt="" class="h1hFNe" data-deferred="1" id="dimg_9" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="width:120px;height:68px"/>
+        </div>
+       </div>
+       <div>
+        <div class="BNeawe s3v9rd AP7Wnd">
+         <div>
+          <div class="BNeawe s3v9rd AP7Wnd">
+           AMTD Digital Inc. , announced today that its board of directors has authorized a new share repurchase program under which the Company may repurchase up to...
+           <br/>
+           <span class="r0bn4c rQMQod">
+            1 day ago
+           </span>
+          </div>
+         </div>
+        </div>
+       </div>
+       <div class="rl7ilb">
+       </div>
+      </div>
+     </a>
+    </div>
+   </div>
+   <div>
+    <div class="Gx5Zad fP1Qef xpd EtOod pkphOe">
+     <a data-ved="2ahUKEwiIwfqooq6EAxWIIzQIHcr-BFMQxfQBegQIAhAC" href="/url?q=https://www.chronicle-tribune.com/news/wire/amtd-digital-announces-a-new-share-repurchase-program/article_8480add6-9998-54f5-a0b3-b1eac125f12a.html&amp;sa=U&amp;ved=2ahUKEwiIwfqooq6EAxWIIzQIHcr-BFMQxfQBegQIAhAC&amp;usg=AOvVaw0iROcI4tTa2f9DuWo12wlb">
+      <div class="egMi0 kCrYT">
+       <div class="DnJfK">
+        <div class="j039Wc">
+         <h3 class="zBAuLc l97dzf">
+          <div class="BNeawe vvjwJb AP7Wnd">
+           AMTD Digital Announces a New Share Repurchase Program
+          </div>
+         </h3>
+        </div>
+        <div class="sCuL3">
+         <div class="BNeawe UPmit AP7Wnd lRVwie">
+          Chronicle-Tribune
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="kCrYT">
+       <div class="lcJF1d Q6Xouf G6SP0b">
+        <div style="width:120px;height:66px;position:static">
+         <img alt="" class="h1hFNe" data-deferred="1" id="dimg_3" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="width:120px;height:66px"/>
+        </div>
+       </div>
+       <div>
+        <div class="BNeawe s3v9rd AP7Wnd">
+         <div>
+          <div class="BNeawe s3v9rd AP7Wnd">
+           PARIS &amp; NEW YORK--(BUSINESS WIRE)--Feb 14, 2024--. AMTD Digital Inc. (“AMTD Digital” or “Company”) (NYSE: HKD), announced today that its board of directors...
+           <br/>
+           <span class="r0bn4c rQMQod">
+            1 day ago
+           </span>
+          </div>
+         </div>
+        </div>
+       </div>
+       <div class="rl7ilb">
+       </div>
+      </div>
+     </a>
+    </div>
+   </div>
+   <div>
+    <div class="Gx5Zad fP1Qef xpd EtOod pkphOe">
+     <a data-ved="2ahUKEwiIwfqooq6EAxWIIzQIHcr-BFMQxfQBegQIARAC" href="/url?q=https://www.marketbeat.com/instant-alerts/nyse-hkd-gap-down-2024-02-12/&amp;sa=U&amp;ved=2ahUKEwiIwfqooq6EAxWIIzQIHcr-BFMQxfQBegQIARAC&amp;usg=AOvVaw0cvQuNv1fRS21tf2mLR3pb">
+      <div class="egMi0 kCrYT">
+       <div class="DnJfK">
+        <div class="j039Wc">
+         <h3 class="zBAuLc l97dzf">
+          <div class="BNeawe vvjwJb AP7Wnd">
+           AMTD Digital (NYSE:HKD) Shares Gap Down to $4.26
+          </div>
+         </h3>
+        </div>
+        <div class="sCuL3">
+         <div class="BNeawe UPmit AP7Wnd lRVwie">
+          MarketBeat
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="kCrYT">
+       <div class="lcJF1d Q6Xouf G6SP0b">
+        <div style="width:120px;height:66px;position:static">
+         <img alt="" class="h1hFNe" data-deferred="1" id="dimg_4" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="width:120px;height:66px"/>
+        </div>
+       </div>
+       <div>
+        <div class="BNeawe s3v9rd AP7Wnd">
+         <div>
+          <div class="BNeawe s3v9rd AP7Wnd">
+           AMTD Digital Inc. (NYSE:HKD - Get Free Report)'s share price gapped down before the market opened on Monday . The stock had previously closed at $4.26,...
+           <br/>
+           <span class="r0bn4c rQMQod">
+            3 days ago
+           </span>
+          </div>
+         </div>
+        </div>
+       </div>
+       <div class="rl7ilb">
+       </div>
+      </div>
+     </a>
+    </div>
+   </div>
+   <div>
+    <div class="Gx5Zad fP1Qef xpd EtOod pkphOe">
+     <a data-ved="2ahUKEwiIwfqooq6EAxWIIzQIHcr-BFMQxfQBegQICBAC" href="/url?q=https://kalkinemedia.com/us/business-news/market-analysis/amtd-idea-stock-price-is-stuck-in-a-range-3-reasons-not-to-short-it&amp;sa=U&amp;ved=2ahUKEwiIwfqooq6EAxWIIzQIHcr-BFMQxfQBegQICBAC&amp;usg=AOvVaw1MaMBLT-EjtoLYzQKXk2ck">
+      <div class="egMi0 kCrYT">
+       <div class="DnJfK">
+        <div class="j039Wc">
+         <h3 class="zBAuLc l97dzf">
+          <div class="BNeawe vvjwJb AP7Wnd">
+           AMTD Idea stock price is stuck in a range: 3 reasons not to short it
+          </div>
+         </h3>
+        </div>
+        <div class="sCuL3">
+         <div class="BNeawe UPmit AP7Wnd lRVwie">
+          Kalkine Media
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="kCrYT">
+       <div class="lcJF1d Q6Xouf G6SP0b">
+        <div style="width:120px;height:66px;position:static">
+         <img alt="" class="h1hFNe" data-deferred="1" id="dimg_17" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="width:120px;height:66px"/>
+        </div>
+       </div>
+       <div>
+        <div class="BNeawe s3v9rd AP7Wnd">
+         <div>
+          <div class="BNeawe s3v9rd AP7Wnd">
+           AMTD Idea (AMTD) stock price has moved horizontally since November last year as the company has not made any headlines. The shares have remained inside the...
+           <br/>
+           <span class="r0bn4c rQMQod">
+            4 days ago
+           </span>
+          </div>
+         </div>
+        </div>
+       </div>
+       <div class="rl7ilb">
+       </div>
+      </div>
+     </a>
+    </div>
+   </div>
+   <div>
+    <div class="Gx5Zad fP1Qef xpd EtOod pkphOe">
+     <a data-ved="2ahUKEwiIwfqooq6EAxWIIzQIHcr-BFMQxfQBegQIBxAC" href="/url?q=https://www.marketbeat.com/instant-alerts/nyse-hkd-gap-up-2024-02-09/&amp;sa=U&amp;ved=2ahUKEwiIwfqooq6EAxWIIzQIHcr-BFMQxfQBegQIBxAC&amp;usg=AOvVaw0AgYFbbPpkgf0l0AZsPM6i">
+      <div class="egMi0 kCrYT">
+       <div class="DnJfK">
+        <div class="j039Wc">
+         <h3 class="zBAuLc l97dzf">
+          <div class="BNeawe vvjwJb AP7Wnd">
+           AMTD Digital (NYSE:HKD) Shares Gap Up to $4.12
+          </div>
+         </h3>
+        </div>
+        <div class="sCuL3">
+         <div class="BNeawe UPmit AP7Wnd lRVwie">
+          MarketBeat
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="kCrYT">
+       <div class="lcJF1d Q6Xouf G6SP0b">
+        <div style="width:120px;height:66px;position:static">
+         <img alt="" class="h1hFNe" data-deferred="1" id="dimg_1" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="width:120px;height:66px"/>
+        </div>
+       </div>
+       <div>
+        <div class="BNeawe s3v9rd AP7Wnd">
+         <div>
+          <div class="BNeawe s3v9rd AP7Wnd">
+           AMTD Digital Inc. (NYSE:HKD - Get Free Report)'s share price gapped up prior to trading on Friday . The stock had previously closed at $4.12, but opened at...
+           <br/>
+           <span class="r0bn4c rQMQod">
+            6 days ago
+           </span>
+          </div>
+         </div>
+        </div>
+       </div>
+       <div class="rl7ilb">
+       </div>
+      </div>
+     </a>
+    </div>
+   </div>
+   <div>
+    <div class="Gx5Zad fP1Qef xpd EtOod pkphOe">
+     <a data-ved="2ahUKEwiIwfqooq6EAxWIIzQIHcr-BFMQxfQBegQIBRAC" href="/url?q=https://ca.investing.com/news/stock-market-news/amtd-announces-board-changes-and-governance-milestones-93CH-3259203&amp;sa=U&amp;ved=2ahUKEwiIwfqooq6EAxWIIzQIHcr-BFMQxfQBegQIBRAC&amp;usg=AOvVaw2ols2is96TC7osyKbMPto4">
+      <div class="egMi0 kCrYT">
+       <div class="DnJfK">
+        <div class="j039Wc">
+         <h3 class="zBAuLc l97dzf">
+          <div class="BNeawe vvjwJb AP7Wnd">
+           AMTD announces board changes and governance milestones By Investing.com
+          </div>
+         </h3>
+        </div>
+        <div class="sCuL3">
+         <div class="BNeawe UPmit AP7Wnd lRVwie">
+          Investing.com Canada
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="kCrYT">
+       <div class="lcJF1d Q6Xouf G6SP0b">
+        <div style="width:120px;height:66px;position:static">
+         <img alt="" class="h1hFNe" data-deferred="1" id="dimg_13" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="width:120px;height:66px"/>
+        </div>
+       </div>
+       <div>
+        <div class="BNeawe s3v9rd AP7Wnd">
+         <div>
+          <div class="BNeawe s3v9rd AP7Wnd">
+           PARIS - AMTD Group Inc., along with its entities AMTD IDEA Group (NYSE: AMTD; SGX: HKB) and AMTD Digital Inc. (NYSE: HKD), has announced significant changes...
+           <br/>
+           <span class="r0bn4c rQMQod">
+            6 days ago
+           </span>
+          </div>
+         </div>
+        </div>
+       </div>
+       <div class="rl7ilb">
+       </div>
+      </div>
+     </a>
+    </div>
+   </div>
+   <footer>
+    <div>
+     <div class="Gx5Zad xpd EtOod pkphOe BmP5tf">
+      <div class="nMymef Va3FIb lVm3ye">
+       <a aria-label="Next page" class="nBDE1b G5eFlf" href="/search?q=hkd&amp;lr=lang_en&amp;sca_esv=c24955e436027d1c&amp;biw=1920&amp;bih=976&amp;tbs=lr:lang_1en,sbd:1&amp;tbm=nws&amp;ei=Pn_OZYiqO4jH0PEPyv2TmAU&amp;start=10&amp;sa=N">
+        Next &gt;
+       </a>
+      </div>
+     </div>
+    </div>
+    <div id="EOlPnc">
+     <div class="Srfpq">
+      <div>
+       <span class="EYqSq unknown_loc">
+       </span>
+       <span class="dfB0uf">
+        T2L, Calgary, AB
+       </span>
+      </div>
+      <span>
+       From your IP address
+      </span>
+      <span>
+       -
+      </span>
+      <a aria-label="Learn more about this location" class="IffyKc" href="/url?q=https://support.google.com/websearch%3Fp%3Dws_settings_location%26hl%3Den-CA&amp;opi=89978449&amp;sa=U&amp;ved=0ahUKEwiIwfqooq6EAxWIIzQIHcr-BFMQty4IUw&amp;usg=AOvVaw0J7RHjcn956BA0fnetR4_Z" tabindex="0">
+       Learn more
+      </a>
+     </div>
+     <div>
+      <a href="/url?q=https://accounts.google.com/ServiceLogin%3Fcontinue%3Dhttps://www.google.com/search%253Fq%253Dhkd%2526lr%253Dlang_en%2526biw%253D1920%2526bih%253D976%2526source%253Dlnt%2526tbs%253Dlr:lang_1en,cdr:1,cd_min:01/05/2023,cd_max:01/05/2023,sbd:1%2526tbm%253Dnws%26hl%3Den&amp;opi=89978449&amp;sa=U&amp;ved=0ahUKEwiIwfqooq6EAxWIIzQIHcr-BFMQxs8CCFQ&amp;usg=AOvVaw359J3eUHdTGyoaF6toM2P7">
+       Sign in
+      </a>
+     </div>
+     <div>
+      <a class="xeDNfc" href="https://www.google.com/preferences?hl=en-CA&amp;fg=1&amp;sa=X&amp;ved=0ahUKEwiIwfqooq6EAxWIIzQIHcr-BFMQ5fUCCFU">
+       Settings
+      </a>
+      <a class="xeDNfc" href="https://policies.google.com/privacy?hl=en-CA&amp;fg=1">
+       Privacy
+      </a>
+      <a class="xeDNfc" href="https://policies.google.com/terms?hl=en-CA&amp;fg=1">
+       Terms
+      </a>
+      <a class="xeDNfc" href="/setprefs?hl=en&amp;prev=https://www.google.com/search?q%3Dhkd%26lr%3Dlang_en%26biw%3D1920%26bih%3D976%26source%3Dlnt%26tbs%3Dlr:lang_1en,cdr:1,cd_min:01/05/2023,cd_max:01/05/2023,sbd:1%26tbm%3Dnws%26pccc%3D1&amp;sig=0_jtnEoE_MyjIrp07nmN5s6eYsjOk%3D&amp;cs=2&amp;sa=X&amp;ved=0ahUKEwiIwfqooq6EAxWIIzQIHcr-BFMQjcAJCFY">
+       Dark theme: Off
+      </a>
+     </div>
+    </div>
+   </footer>
+   <script nonce="pF00yBBNb_ML2GmR9zwBxA">
+    (function(){var hl='en-CA';(function(){
+var f=this||self,g=function(a){return a};var h,k=function(){if(void 0===h){var a=null,b=f.trustedTypes;if(b&&b.createPolicy){try{a=b.createPolicy("goog#html",{createHTML:g,createScript:g,createScriptURL:g})}catch(c){f.console&&f.console.error(c.message)}h=a}else h=a}return h};var p=function(a,b){this.g=a===l&&b||"";this.h=m};p.prototype.toString=function(){return this.g};var q=function(a){return a instanceof p&&a.constructor===p&&a.h===m?a.g:"type_error:Const"},m={},l={};var r=function(a){this.g=a};r.prototype.toString=function(){return this.g+""};var t=function(a){return a instanceof r&&a.constructor===r?a.g:"type_error:TrustedResourceUrl"},x=function(){var a={},b=q(new p(l,"/complete/search"));if(!u.test(b))throw Error("e`"+b);var c=b.replace(v,function(e,d){if(!Object.prototype.hasOwnProperty.call(a,d))throw Error("f`"+d+"`"+b+"`"+JSON.stringify(a));e=a[d];return e instanceof p?q(e):encodeURIComponent(String(e))});return w(c)},v=/%{(\w+)}/g,u=RegExp("^((https:)?//[0-9a-z.:[\\]-]+/|/[^/\\\\]|[^:/\\\\%]+/|[^:/\\\\%]*[?#]|about:blank#)","i"),y=/^([^?#]*)(\?[^#]*)?(#[\s\S]*)?/,z={},w=function(a){var b=k();a=b?b.createScriptURL(a):a;return new r(a,z)},A=function(a,b,c){if(null==c)return b;if("string"===typeof c)return c?a+encodeURIComponent(c):"";for(var e in c)if(Object.prototype.hasOwnProperty.call(c,e)){var d=c[e];d=Array.isArray(d)?d:[d];for(var n=0;n<d.length;n++){var O=d[n];null!=O&&(b||(b=a),b+=(b.length>a.length?"&":"")+encodeURIComponent(e)+"="+encodeURIComponent(String(O)))}}return b};var B={},C=function(a){this.g=a};C.prototype.toString=function(){return this.g.toString()};
+function D(a,b){if(1===a.nodeType){var c=a.tagName;if("SCRIPT"===c||"STYLE"===c)throw Error("g");}a.innerHTML=b instanceof C&&b.constructor===C?b.g:"type_error:SafeHtml"};function E(a){a=null===a?"null":void 0===a?"undefined":a;var b=k();a=b?b.createHTML(a):a;return new C(a,B)};var F=document.querySelector(".l"),G=document.querySelector("#sf"),H=G.querySelector(".sbc"),I=G.querySelector("[type=text]"),J=G.querySelector("[type=submit]"),K=G.querySelector(".sc"),L=G.querySelector(".x"),M=I.value,N=[],P=-1,Q=M,R,S,T;M||(L&&(L.style.display="none"),U(!1));function U(a){if(H.classList.contains("esbc")){var b=H.classList.contains("chsbc"),c=H.classList.contains("rtlsbc");a&&(K.style.display="block",b?(G.style.borderRadius="20px 20px 0 0",K.style.borderBottom="1px solid #DFE1E5",J.style.borderRadius=c?"20px 0 0 0":"0 20px 0 0"):H.style.borderRadius=c?"0 8px 0 0":"8px 0 0 0");a||(K.style.display="none",b?(G.style.borderRadius="20px",K.style.borderBottom="none",J.style.borderRadius=c?"20px 0 0 20px":"0 20px 20px 0"):H.style.borderRadius=c?"0 8px 8px 0":"8px 0 0 8px")}}function V(){G.querySelector("[name=oq]").value=Q;G.querySelector("[name=aqs]").value="heirloom-srp."+(0<=P?P:"")+"."+(0<N.length?"0l"+N.length:"")}
+function W(){R=null;if(S){var a={client:"heirloom-srp",hl:hl,json:"t",callback:"hS",q:S};"undefined"!==typeof ds&&ds&&(a.ds=ds);var b=document;var c="SCRIPT";"application/xhtml+xml"===b.contentType&&(c=c.toLowerCase());c=b.createElement(c);b=x();b=y.exec(t(b).toString());var e=b[3]||"";a=w(b[1]+A("?",b[2]||"",a)+A("#",e));c.src=t(a);var d,n;(d=(a=null==(n=(d=(c.ownerDocument&&c.ownerDocument.defaultView||window).document).querySelector)?void 0:n.call(d,"script[nonce]"))?a.nonce||a.getAttribute("nonce")||
+"":"")&&c.setAttribute("nonce",d);document.body.appendChild(c);S=null;R=setTimeout(W,500)}}function X(){for(;K.firstChild;)K.removeChild(K.firstChild);N=[];P=-1;U(!1)}function Y(){var a=K.querySelector(".scs");a&&(a.className="");0<=P?(a=K.childNodes[P],a.className="scs",M=a.textContent):M=Q;I.value=M}I.addEventListener("focus",function(){F&&(F.style.display="none")},!1);I.addEventListener("blur",function(){X();F&&(F.style.display="")},!1);I.addEventListener("keyup",function(a){M=I.value;T=!1;13===a.which?V():27===a.which?(X(),F&&(F.style.display=""),M=Q,I.value=M):40===a.which?(P++,P>=N.length&&(P=-1),Y()):38===a.which?(P--,-1>P&&(P=N.length-1),Y()):(a=M)?(L&&(L.style.display=""),S=a,R||W(),Q=a):(L&&(L.style.display="none"),U(!1),X(),Q="",T=!0)},!1);J.addEventListener("click",V,!1);L.addEventListener("click",function(){I.value="";L.style.display="none";U(!1)},!1);H.addEventListener("click",function(){I.focus()},!1);window.hS=function(a){if(!T){X();0===a[1].length&&U(!1);for(var b=0;b<a[1].length;b++){var c=a[1][b][0],e=document.createElement("div");D(e,E(c));e.addEventListener("mousedown",function(d){d.preventDefault();return!1},!1);c=c.replace(/<\/?b>/g,"");e.addEventListener("click",function(d){return function(){P=d;V();Y();X();G.submit()}}(b),!1);e.addEventListener("mouseover",function(d){return function(){P!==d&&(P=d,Y())}}(b),!1);K.appendChild(e);U(!0);N.push(c)}}};}).call(this);})();(function(){function b(a){for(a=a.target||a.srcElement;a&&"A"!==a.nodeName;)a=a.parentElement;a&&(a.href||"").match(/\/search.*[?&]tbm=isch/)&&(a.href+="&biw="+document.documentElement.clientWidth,a.href+="&bih="+document.documentElement.clientHeight)}document.addEventListener("click",b,!1);document.addEventListener("touchStart",b,!1);}).call(this);
+   </script>
+  </div>
+  <!-- cctlcm 5 cctlcm -->
+  <textarea class="csi" name="csi" style="display:none"></textarea>
+  <script nonce="pF00yBBNb_ML2GmR9zwBxA">
+   (function(){var e='Pn_OZYiqO4jH0PEPyv2TmAU';var sn='newssearch';var timl=false;(function(){function B(a){if(!a||C(a))return 0;if(!a.getBoundingClientRect)return 1;var c=function(b){return b.getBoundingClientRect()};return D(a,c)?0:J(a,c)}function D(a,c){var b;a:{for(b=a;b&&null!==b;b=b.parentElement)if("hidden"===b.style.overflow||"G-EXPANDABLE-CONTENT"===b.tagName&&"hidden"===getComputedStyle(b).getPropertyValue("overflow"))break a;b=null}if(!b)return!1;a=c(a);c=c(b);return a.bottom<c.top||a.top>=c.bottom||a.right<c.left||a.left>=c.right}
+function C(a){return"none"===a.style.display?!0:document.defaultView&&document.defaultView.getComputedStyle?(a=document.defaultView.getComputedStyle(a),!!a&&("hidden"===a.visibility||"0px"===a.height&&"0px"===a.width)):!1}
+function J(a,c){var b=c(a);a=b.left+window.pageXOffset;c=b.top+window.pageYOffset;var f=b.width;b=b.height;var g=0;if(0>=b&&0>=f)return g;var q=window.innerHeight||document.documentElement.clientHeight;0>c+b?g=2:c>=q&&(g=4);if(0>a+f||a>=(window.innerWidth||document.documentElement.clientWidth))g|=8;g||(g=1,c+b>q&&(g|=4));return g};var K=e,L=sn,M="undefined"===typeof de?!0:!1!==de,N=[];function O(a,c,b){a="/gen_204?atyp=csi&s="+L+"&t="+a+("&lite=1&ei="+K+"&conn="+(window.navigator&&window.navigator.connection?window.navigator.connection.type:-1)+c);c="&rt=";for(var f in b)a+=""+c+f+"."+b[f],c=",";return a}function P(a){a={prt:a};window.wsrt&&(a.wsrt=window.wsrt);return a}function Q(a){window.ping?window.ping(a):(new Image).src=a}
+(function(){for(var a=(new Date).getTime()-window.start,c=P(a),b=0,f=0,g=0,q=document.getElementsByTagName("img"),r=M?"&biw="+window.innerWidth+"&bih="+window.innerHeight:"",E=function(){r+="&ima="+g;c.aft=b;Q(O("aft",r,c))},x=0,R=function(h,t,u){var n=h.src;h.onload=function(){u&&n&&n===h.src||(f=(new Date).getTime()-window.start,t&&++x===g&&(b=f,E()),h.onload=null)}},S=0,d=void 0;d=q[S++];){var v=B(d),p=!!(v&1);p&&++g;var l=d.hasAttribute("data-ilite"),w=d.hasAttribute("data-deferred"),F=d.hasAttribute("data-src")||
+d.hasAttribute("data-lzysrc"),y=!w&&!l&&F;N.push([v,w||l,y,!!(google.ldi&&d.id&&google.ldi[d.id])||l&&F]);l=(v=d.complete&&!w&&!(p&&y))&&Number(d.getAttribute("data-iml"))||0;v&&l?(p&&++x,l&&(d=l-window.start,p&&(b=Math.max(b,d)),f=Math.max(f,d))):R(d,p,w||y)}b||(b=a);f||(f=b);x===g&&E();google.rglh&&google.rglh();window.addEventListener("load",function(){window.setTimeout(function(){c.ol=(new Date).getTime()-window.start;timl&&(c.iml=f);var h=window.performance&&window.performance.timing;h&&(c.rqst=
+h.responseEnd-h.requestStart,c.rspt=h.responseEnd-h.responseStart);for(var t=h=0,u=0,n=0,G=0,H=0,T=0,k;k=N[T++];){var m=k[0],z=k[1],I=k[2];k=k[3];var U=0==m,V=m&8,A=m&1;m=!A&&m&4;A&&(z&&!k||++u,I&&++H);z&&(A&&k&&++h,m&&!k&&++t);U||V?I||++G:z||++n}r+="&ime="+u+"&imel="+H+("&imex="+n+"&imeh="+G)+("&imea="+h+"&imeb="+t);Q(O("all",r,c))},0)},!1)})();}).call(this);})();(function(){window.google=window.google||{};window.google.ishk=[];function a(){return window.scrollY+window.document.documentElement.clientHeight>=Math.max(document.body.scrollHeight,document.body.offsetHeight)}function b(){a()&&0===window.google.ishk.length&&(window.google.bs=!0,window.removeEventListener("scroll",b))}a()?window.google.bs=!0:(window.google.bs=!1,window.addEventListener("scroll",b));}).call(this);
+  </script>
+  <script nonce="pF00yBBNb_ML2GmR9zwBxA">
+   window._setImagesSrc=function(f,c){function h(a){a.onerror=function(){a.style.display="none"};a.setAttribute("data-deferred","2");"data:"!==c.substring(0,5)&&a.setAttribute("data-defe","1");a.src=c;var g;(null==(g=google.c)?0:g.di)&&a.decode()}for(var d=0;d<f.length;++d){var b=f[d],e=document.getElementById(b)||document.querySelector('img[data-iid="'+b+'"]');e?(b=void 0,(null==(b=google.c)?0:b.setup)&&google.c.setup(e),h(e)):(google.iir=google.iir||{},google.iir[b]=c)}};"undefined"===typeof window.google&&(window.google={});
+  </script>
+  <script nonce="pF00yBBNb_ML2GmR9zwBxA">
+   (function(){var s='data:image/jpeg;base64,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\x3d\x3d';var i=['dimg_8'];_setImagesSrc(i,s);})();
+  </script>
+  <script nonce="pF00yBBNb_ML2GmR9zwBxA">
+   (function(){var s='data:image/png;base64,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\x3d\x3d';var i=['dimg_19','dimg_9'];_setImagesSrc(i,s);})();
+  </script>
+  <script nonce="pF00yBBNb_ML2GmR9zwBxA">
+   (function(){var s='data:image/jpeg;base64,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\x3d\x3d';var i=['dimg_5','dimg_4','dimg_1'];_setImagesSrc(i,s);})();
+  </script>
+  <script nonce="pF00yBBNb_ML2GmR9zwBxA">
+   (function(){var s='data:image/jpeg;base64,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\x3d\x3d';var i=['dimg_15'];_setImagesSrc(i,s);})();
+  </script>
+  <script nonce="pF00yBBNb_ML2GmR9zwBxA">
+   (function(){var s='data:image/jpeg;base64,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\x3d\x3d';var i=['dimg_3'];_setImagesSrc(i,s);})();
+  </script>
+  <script nonce="pF00yBBNb_ML2GmR9zwBxA">
+   (function(){var s='data:image/jpeg;base64,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\x3d';var i=['dimg_17'];_setImagesSrc(i,s);})();
+  </script>
+  <script nonce="pF00yBBNb_ML2GmR9zwBxA">
+   (function(){var s='data:image/jpeg;base64,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\x3d\x3d';var i=['dimg_13'];_setImagesSrc(i,s);})();
+  </script>
+  <script nonce="pF00yBBNb_ML2GmR9zwBxA">
+   (function(){var e='Pn_OZYiqO4jH0PEPyv2TmAU';(function(){var a=e;if(2===(window.performance&&window.performance.navigation&&window.performance.navigation.type)){var b="",c=[],d=void 0!==window.google&&void 0!==window.google.kOPI&&0!==window.google.kOPI?window.google.kOPI:null;null!=d&&c.push(["opi",d.toString()]);for(var f=0;f<c.length;f++){if(0===f||0<f)b+="&";b+=c[f][0]+"="+c[f][1]}window.ping("/gen_204?ct=backbutton&ei="+a+b)};}).call(this);})();(function(){var b=[function(){google.tick&&google.tick("load","dcl")}];google.dclc=function(a){b.length?b.push(a):a()};function c(){for(var a=b.shift();a;)a(),a=b.shift()}window.addEventListener?(document.addEventListener("DOMContentLoaded",c,!1),window.addEventListener("load",c,!1)):window.attachEvent&&window.attachEvent("onload",c);}).call(this);(function(){var b=function(a){var c=0;return function(){return c<a.length?{done:!1,value:a[c++]}:{done:!0}}};
+var e=this||self;var g,h;a:{for(var k=["CLOSURE_FLAGS"],l=e,n=0;n<k.length;n++)if(l=l[k[n]],null==l){h=null;break a}h=l}var p=h&&h[610401301];g=null!=p?p:!1;var q,r=e.navigator;q=r?r.userAgentData||null:null;function t(a){return g?q?q.brands.some(function(c){return(c=c.brand)&&-1!=c.indexOf(a)}):!1:!1}function u(a){var c;a:{if(c=e.navigator)if(c=c.userAgent)break a;c=""}return-1!=c.indexOf(a)};function v(){return g?!!q&&0<q.brands.length:!1}function w(){return u("Safari")&&!(x()||(v()?0:u("Coast"))||(v()?0:u("Opera"))||(v()?0:u("Edge"))||(v()?t("Microsoft Edge"):u("Edg/"))||(v()?t("Opera"):u("OPR"))||u("Firefox")||u("FxiOS")||u("Silk")||u("Android"))}function x(){return v()?t("Chromium"):(u("Chrome")||u("CriOS"))&&!(v()?0:u("Edge"))||u("Silk")}function y(){return u("Android")&&!(x()||u("Firefox")||u("FxiOS")||(v()?0:u("Opera"))||u("Silk"))};var z=v()?!1:u("Trident")||u("MSIE");y();x();w();Object.freeze(new function(){});Object.freeze(new function(){});var A=!z&&!w(),D=function(a){if(/-[a-z]/.test("ved"))return null;if(A&&a.dataset){if(y()&&!("ved"in a.dataset))return null;a=a.dataset.ved;return void 0===a?null:a}return a.getAttribute("data-"+"ved".replace(/([A-Z])/g,"-$1").toLowerCase())};var E=[],F=null;function G(a){a=a.target;var c=performance.now(),f=[],H=f.concat,d=E;if(!(d instanceof Array)){var m="undefined"!=typeof Symbol&&Symbol.iterator&&d[Symbol.iterator];if(m)d=m.call(d);else if("number"==typeof d.length)d={next:b(d)};else throw Error("a`"+String(d));for(var B=[];!(m=d.next()).done;)B.push(m.value);d=B}E=H.call(f,d,[c]);if(a&&a instanceof HTMLElement)if(a===F){if(c=4<=E.length)c=5>(E[E.length-1]-E[E.length-4])/1E3;if(c){c=google.getEI(a);a.hasAttribute("data-ved")?f=a?D(a)||"":"":f=(f=
+a.closest("[data-ved]"))?D(f)||"":"";f=f||"";if(a.hasAttribute("jsname"))a=a.getAttribute("jsname");else{var C;a=null==(C=a.closest("[jsname]"))?void 0:C.getAttribute("jsname")}google.log("rcm","&ei="+c+"&ved="+f+"&jsname="+(a||""))}}else F=a,E=[c]}window.document.addEventListener("DOMContentLoaded",function(){document.body.addEventListener("click",G)});}).call(this);var w=function(a){var b=0;return function(){return b<a.length?{done:!1,value:a[b++]}:{done:!0}}};window.jsl=window.jsl||{};window.jsl.dh=function(a,b,m){try{var h=document.getElementById(a),e;if(!h&&(null==(e=google.stvsc)?0:e.dds)){e=[];var f=e.concat,c=google.stvsc.dds;if(c instanceof Array)var n=c;else{var p="undefined"!=typeof Symbol&&Symbol.iterator&&c[Symbol.iterator];if(p)var g=p.call(c);else if("number"==typeof c.length)g={next:w(c)};else throw Error(String(c)+" is not an iterable or ArrayLike");c=g;var q;for(g=[];!(q=c.next()).done;)g.push(q.value);n=g}var r=f.call(e,n);for(f=0;f<r.length&&!(h=r[f].getElementById(a));f++);}if(h)h.innerHTML=b,m&&m();else{var d={id:a,script:String(!!m),milestone:String(google.jslm||0)};google.jsla&&(d.async=google.jsla);var t=a.indexOf("_"),k=0<t?a.substring(0,t):"",u=document.createElement("div");u.innerHTML=b;var l=u.children[0];if(l&&(d.tag=l.tagName,d["class"]=String(l.className||null),d.name=String(l.getAttribute("jsname")),k)){a=[];var v=document.querySelectorAll('[id^="'+k+'_"]');for(b=0;b<v.length;++b)a.push(v[b].id);d.ids=a.join(",")}google.ml(Error(k?"Missing ID with prefix "+
+k:"Missing ID"),!1,d)}}catch(x){google.ml(x,!0,{"jsl.dh":!0})}};(function(){var x=false;google.jslm=x?2:1;})();(function(){(function(){google.csct={};google.csct.ps='AOvVaw2OySzsovXo4RYsArfHCyMQ\x26ust\x3d1708118207015456';})();})();(function(){(function(){google.csct.rd=true;})();})();(function(){(function(){google.csct.rl=true;})();})();if (!google.stvsc){google.drty && google.drty(undefined,true);}
+  </script>
+ </body>
+</html>

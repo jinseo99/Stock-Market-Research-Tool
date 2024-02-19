@@ -1,8 +1,7 @@
 import dash
 from dash import Dash, html, dcc
-import dash_bootstrap_components as dbc
 
-app = Dash(__name__, use_pages=True, external_stylesheets=[dbc.themes.BOOTSTRAP])
+app = Dash(__name__, use_pages=True)
 
 app.layout = html.Div([
     # html.H1('Multi-page app with Dash Pages'),
@@ -12,7 +11,10 @@ app.layout = html.Div([
         ) for page in dash.page_registry.values()
     ]),
     dash.page_container,
-])
+    ], style={
+        "font-family": "Arial, Helvetica, sans-serif",
+    }
+)
 
 if __name__ == '__main__':
     app.run(debug=True,host="192.168.0.102")

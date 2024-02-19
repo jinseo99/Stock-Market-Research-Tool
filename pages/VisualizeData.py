@@ -6,7 +6,7 @@ import plotly.express as px
 from pathlib import Path
 import sys
 import dash
-from dash import Dash, html, dcc, ctx, no_update, callback, clientside_callback
+from dash import Dash, html, dcc, dash_table, ctx, no_update, callback, clientside_callback
 from dash.dependencies import Output, Input, State
 from os import listdir
 from collections import defaultdict
@@ -19,7 +19,7 @@ from numerize import numerize
 dash.register_page(__name__)
 
 def loadStockData():
-    CSV_DIR = "/Users/jinlee/Desktop/Codes/Python Codes/stock_data_scraper/StockData/"
+    CSV_DIR = r"/Volumes/easystore/ProjectGRT/StockData/"
     csv_files = listdir(CSV_DIR)
     csv_map = defaultdict(lambda: defaultdict(list))
     for csv_file in csv_files:
@@ -49,8 +49,14 @@ ALL_HOLIDAYS = HOLIDAYS_2020+HOLIDAYS_2021+HOLIDAYS_2022+HOLIDAYS_2023+HOLIDAYS_
 df = fig = None
 def createFig(CSV_PATH,ticker):
     global df
-    df = pd.read_csv(CSV_PATH)
+    df = pd.read_csv(CSV_PATH, parse_dates=["timestamp"])
+    df = df[::-1]
     df.columns.values[0] = "timestamp"
+
+    df.insert(0,'time','')
+    df["time"] = df['timestamp'].dt.strftime(r'%-I:%M %p')
+    df["id"] = df["timestamp"]
+    df.set_index('id', inplace=True, drop=False)
 
     fig = px.line(df, x = "timestamp", y = 'close', custom_data=["open","high","low","volume"], title=ticker, render_mode="svg",height=800)
     fig.update_xaxes(
@@ -77,56 +83,53 @@ def createFig(CSV_PATH,ticker):
 # app = Dash(__name__, external_stylesheets=[dbc.themes.BOOTSTRAP])
 
 layout = html.Div([
-    dbc.Row(dcc.Graph(
-        id='fig',
-        config={'scrollZoom': True},
-        # figure=fig,
-        clear_on_unhover=True
-    )),
-    dbc.Row(dcc.Tooltip(id="graph-tooltip")),
-    dbc.Row([
-        dbc.Col(dcc.Dropdown(
+    html.Div([
+        html.Div(dcc.Graph(
+            id='fig',
+            config={'scrollZoom': True},
+            # figure=fig,
+            clear_on_unhover=True
+        ), style={"width":"80%"}),
+        html.Div(dash_table.DataTable(
+            id="fig-table",
+            page_size= 25,
+
+        ), style={"width":"20%"}),
+        html.Div(id="table-test-output")
+    ], style= {"display":"flex"}),
+    dcc.Tooltip(id="graph-tooltip"),
+    html.Div([
+        html.Div(dcc.Dropdown(
             id="ticker-dynamic-dropdown",
             options=sorted([k for k in csv_map]),
             # value="AAPL"
         ), 
-        width={"size":2,"offset":1}), 
-        dbc.Col(dcc.Dropdown(id="year-dynamic-dropdown"), width={"size":1}),
-        dbc.Col(dcc.Dropdown(id="month-dynamic-dropdown"), width={"size":1}),
-        dbc.Col(daq.BooleanSwitch(id="extended-hours-switch",label="Extended Hours", on=True), width={"size":1}),
-        dbc.Col(daq.BooleanSwitch(id="remove-holidays-switch",label="Remove Holidays", on=False), width={"size":1}),
-        dbc.Col(html.Button("Reload Data", id="reload-button"), width={"size":1, "offset":3}, )
-    ]),
-    dbc.Row([
-        dbc.Col(dcc.Input(id="ticker-input", type="text", placeholder="ticker", debounce=True), width={"size":1, "offset":1}),
-        dbc.Col(dcc.Input(id="date-input", type="text", placeholder="yyyy-MM", debounce=True), width={"size":1}),
-        dbc.Col(html.Button('Download', id='download-button'), width={"size":1}),
-        dbc.Col(dcc.Loading(id="output-loading",children = [html.Plaintext(id="download-message",)]),width={"size":3})
-        # dbc.Col(html.Plaintext(id="download-message",),width={"size":2})
-    ],style={"margin-top": "50px"}),
+        style = {"width":"200px"}), 
+        html.Div(dcc.Dropdown(id="year-dynamic-dropdown", ),style = {"width":"100px"}),
+        html.Div(dcc.Dropdown(id="month-dynamic-dropdown"), style = {"width":"100px"}),
+        html.Div(daq.BooleanSwitch(id="extended-hours-switch",label="Extended Hours", on=True), style = {"margin-left":"10px"}),
+        html.Div(daq.BooleanSwitch(id="remove-holidays-switch",label="Remove Holidays", on=False), style = {"margin-left":"10px"}),
+        html.Div(html.Button("Reload Data", id="reload-button"), style = {"margin-left":"10px"}, )
+    ],style={"display":"flex", "margin-left":"5%"}),
+    html.Div([
+        html.Div(dcc.Input(id="ticker-input", type="text", placeholder="ticker", debounce=True,), style = {}),
+        html.Div(dcc.Input(id="date-input", type="text", placeholder="yyyy-MM", debounce=True), style = {}),
+        html.Div(html.Button('Download', id='download-button'), style = {}),
+        html.Div(dcc.Loading(id="output-loading"),style = {"margin-left":"10px"})
+    ],style={"display":"flex","margin-left":"5%", "margin-top":"1%"}),
     dcc.Store(id='cached-visual-data',storage_type="session"),
-    dcc.Store(id="fig-position-data",storage_type="session"),
-    html.Div(id="test-text")
 ])
 
-# clientside_callback(
-#     """
-#     function(data, fig) {
-#         return {"Testing":10};
-#     }
-#     """,
-#     Output('fig-position-data', 'data'),
-#     Input("cached-visual-data","data"),
-#     State('fig', 'figure'),
-# )
+@callback(
+    Output("table-test-output","children"),
+    Input("fig-table","active_cell")
+)
+def testTable(cell):
+    if cell:
+        dff = df.loc[df["id"] == cell["row_id"]]
+        print(cell, dff["close"][0])
 
-# @callback(
-#     Output("test-text","children"),
-#     Input('fig-position-data', 'data'),
-# )
-# def test_text(data):
-#     print("DEBUG TEST",data)
-#     return "TESTING"
+    return "Testing"
 
 @callback(
     Output("output-loading", "children",allow_duplicate=True),
@@ -201,6 +204,9 @@ def updateExtended(on,fig):
     Output("year-dynamic-dropdown","options"),
     Output("month-dynamic-dropdown","options"),
 
+    Output('fig-table', 'data'),
+    Output('fig-table', 'columns'),
+
     Input("cached-visual-data","data"),
     Input("ticker-dynamic-dropdown","value"),
     Input("year-dynamic-dropdown","value"),
@@ -213,7 +219,7 @@ def updateExtended(on,fig):
 )
 def populateFigure(data, ticker, year, month,year_options, month_options):
     input_id = ctx.triggered[0]["prop_id"].split(".")[0]
-    print("DEBUG POPULATE",data, ticker, year,month, ctx.triggered[0])
+    # print("DEBUG POPULATE",data, ticker, year,month, ctx.triggered[0])
     if not data and not (ticker or year or month) or not input_id:
         ticker, year, month = (data["ticker"], data["year"], data["month"]) if data else ("AAPL", 2023, 2)
         year_options = sorted([k for k in csv_map[ticker]])
@@ -230,9 +236,9 @@ def populateFigure(data, ticker, year, month,year_options, month_options):
             month_options = sorted([k for k in csv_map[ticker][year]]) 
             month = month_options[0]
 
-    CSV_PATH = "/Users/jinlee/Desktop/Codes/Python Codes/stock_data_scraper/StockData/{}_{:d}-{:02d}.csv".format(ticker,year,month)
+    CSV_PATH = "/Volumes/easystore/ProjectGRT/StockData/{}_{:d}-{:02d}.csv".format(ticker,year,month)
     fig = createFig(CSV_PATH,ticker)
-    return fig, {"ticker":ticker, "year":year, "month":month}, ticker, year, month, year_options, month_options
+    return fig, {"ticker":ticker, "year":year, "month":month}, ticker, year, month, year_options, month_options, df.to_dict('records'), [{"name": i, "id": i} for i in df.columns if i in ["time","close","volume"]]
 
 
 @callback(
@@ -252,7 +258,7 @@ def calculatePercentChange(data,fig):
     change = 100*((final_price-initial_price)/initial_price)
 
     pt = data["points"][0]
-    x, y = pt["bbox"]["x0"]-160, pt["bbox"]["y0"]-185
+    x, y = pt["bbox"]["x0"]-160, pt["bbox"]["y0"]-200
     selected_date,close = datetime.strptime(pt["x"], r"%Y-%m-%d %H:%M"), pt["y"]
     # print(x, selected_date, pt["bbox"])
     bbox = {"x0":0,"x1":100,"y0":0,"y1":500}
@@ -300,7 +306,7 @@ def calculatePercentChange(data,fig):
             
         ], style={
             "position":"fixed",
-            "top":"460px",
+            "top":"430px",
             "left":f"{x}px"
         }),
         html.Div([
@@ -317,7 +323,7 @@ def calculatePercentChange(data,fig):
         ], style={
             "position":"fixed",
             "top":f"{y}px",
-            "left":"1595px"
+            "left":"89vw"
         })
 
     ]
@@ -337,7 +343,7 @@ def scaleYaxis(rng,fig,data):
     if not fig: 
         # print("DEBUG FIG NOT FOUND",data)
         ticker, year, month = (data["ticker"], data["year"], data["month"]) if data else ('AAPL', 2023, 2)
-        CSV_PATH = "/Users/jinlee/Desktop/Codes/Python Codes/stock_data_scraper/StockData/{}_{:d}-{:02d}.csv".format(ticker,year,month)
+        CSV_PATH = "/Volumes/easystore/ProjectGRT/StockData/{}_{:d}-{:02d}.csv".format(ticker,year,month)
         fig = createFig(CSV_PATH,ticker)
     if rng and "xaxis.autorange" in rng:
         # print("AUTORANGE INITIATE")
