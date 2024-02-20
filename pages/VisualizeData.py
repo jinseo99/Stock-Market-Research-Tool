@@ -3,6 +3,8 @@ import time
 import pandas as pd
 from datetime import datetime, date
 import plotly.express as px
+from plotly.subplots import make_subplots
+import plotly.graph_objects as go
 from pathlib import Path
 import sys
 import dash
@@ -54,14 +56,19 @@ def createFig(CSV_PATH,ticker):
     df.columns.values[0] = "timestamp"
 
     df.insert(0,'time','')
-    df["time"] = df['timestamp'].dt.strftime(r'%-I:%M %p')
+    df["time"] = df['timestamp'].dt.strftime(r'%m-%d %-I:%M %p')
     df["id"] = df["timestamp"]
     df.set_index('id', inplace=True, drop=False)
 
-    fig = px.line(df, x = "timestamp", y = 'close', custom_data=["open","high","low","volume"], title=ticker, render_mode="svg",height=800)
+    # fig = px.line(df, x = "timestamp", y = 'close', custom_data=["open","high","low","volume"], title=ticker, render_mode="svg",height=800)
+    fig = make_subplots(rows=2, cols=1, shared_xaxes=True, vertical_spacing=0.02, row_heights=[.8,.2], subplot_titles=[ticker,""])
+    fig.append_trace(go.Scatter(x=df['timestamp'], y=df['close']), row=1,col=1)
+    fig.append_trace(go.Scatter(x=df['timestamp'], y=df['volume']), row=2,col=1)
+    # fig2 = px.line(df, x = "timestamp", y = 'volume')
+    # fig.add_trace(fig2.data[0])
     fig.update_xaxes(
         showspikes=True,
-        rangeslider_visible=True,
+        # rangeslider_visible=True,
         rangebreaks=[
             # dict(bounds=[6, 1], pattern='day of week'),
             dict(values=[]),
@@ -69,10 +76,13 @@ def createFig(CSV_PATH,ticker):
             dict(bounds=[20, 4], pattern="hour")
         ],
     )
-    fig.update_yaxes(showspikes=True)
+    fig.update_yaxes(showspikes=True, fixedrange=True)
     fig.update_layout(
+        showlegend=False,
         hovermode="x",
         yaxis={'side': 'right'},
+        yaxis2={'side': 'right'},
+        height=800
     )
     fig.update_traces(hoverinfo="none", hovertemplate=None)
 
@@ -84,52 +94,45 @@ def createFig(CSV_PATH,ticker):
 
 layout = html.Div([
     html.Div([
-        html.Div(dcc.Graph(
-            id='fig',
-            config={'scrollZoom': True},
-            # figure=fig,
-            clear_on_unhover=True
-        ), style={"width":"80%"}),
+        html.Div([
+            dcc.Graph(
+                id='fig',
+                config={'scrollZoom': True},
+                # figure=fig,
+                clear_on_unhover=True
+            ),
+            html.Div([
+                html.Div(dcc.Dropdown(
+                    id="ticker-dynamic-dropdown",
+                    options=sorted([k for k in csv_map]),
+                    # value="AAPL"
+                ), 
+                style = {"width":"200px"}), 
+                html.Div(dcc.Dropdown(id="year-dynamic-dropdown", ),style = {"width":"100px"}),
+                html.Div(dcc.Dropdown(id="month-dynamic-dropdown"), style = {"width":"100px"}),
+                html.Div(daq.BooleanSwitch(id="extended-hours-switch",label="Extended Hours", on=True), style = {"margin-left":"10px"}),
+                html.Div(daq.BooleanSwitch(id="remove-holidays-switch",label="Remove Holidays", on=False), style = {"margin-left":"10px"}),
+                html.Div(html.Button("Reload Data", id="reload-button"), style = {"margin-left":"10px"}, )
+            ],style={"display":"flex", "margin-left":"5%"}),
+            html.Div([
+                html.Div(dcc.Input(id="ticker-input", type="text", placeholder="ticker", debounce=True,), style = {}),
+                html.Div(dcc.Input(id="date-input", type="text", placeholder="yyyy-MM", debounce=True), style = {}),
+                html.Div(html.Button('Download', id='download-button'), style = {}),
+                html.Div(dcc.Loading(id="output-loading"),style = {"margin-left":"10px"})
+            ],style={"display":"flex","margin-left":"5%", "margin-top":"1%"}),
+        ], style={"width":"80%"}),
         html.Div(dash_table.DataTable(
             id="fig-table",
             page_size= 25,
+            filter_action='native',
+            filter_options = {"case":"insensitive"},
 
-        ), style={"width":"20%"}),
-        html.Div(id="table-test-output")
+        ), style={"width":"17%"}),
+        # html.Div(id="table-test-output")
     ], style= {"display":"flex"}),
     dcc.Tooltip(id="graph-tooltip"),
-    html.Div([
-        html.Div(dcc.Dropdown(
-            id="ticker-dynamic-dropdown",
-            options=sorted([k for k in csv_map]),
-            # value="AAPL"
-        ), 
-        style = {"width":"200px"}), 
-        html.Div(dcc.Dropdown(id="year-dynamic-dropdown", ),style = {"width":"100px"}),
-        html.Div(dcc.Dropdown(id="month-dynamic-dropdown"), style = {"width":"100px"}),
-        html.Div(daq.BooleanSwitch(id="extended-hours-switch",label="Extended Hours", on=True), style = {"margin-left":"10px"}),
-        html.Div(daq.BooleanSwitch(id="remove-holidays-switch",label="Remove Holidays", on=False), style = {"margin-left":"10px"}),
-        html.Div(html.Button("Reload Data", id="reload-button"), style = {"margin-left":"10px"}, )
-    ],style={"display":"flex", "margin-left":"5%"}),
-    html.Div([
-        html.Div(dcc.Input(id="ticker-input", type="text", placeholder="ticker", debounce=True,), style = {}),
-        html.Div(dcc.Input(id="date-input", type="text", placeholder="yyyy-MM", debounce=True), style = {}),
-        html.Div(html.Button('Download', id='download-button'), style = {}),
-        html.Div(dcc.Loading(id="output-loading"),style = {"margin-left":"10px"})
-    ],style={"display":"flex","margin-left":"5%", "margin-top":"1%"}),
     dcc.Store(id='cached-visual-data',storage_type="session"),
 ])
-
-@callback(
-    Output("table-test-output","children"),
-    Input("fig-table","active_cell")
-)
-def testTable(cell):
-    if cell:
-        dff = df.loc[df["id"] == cell["row_id"]]
-        print(cell, dff["close"][0])
-
-    return "Testing"
 
 @callback(
     Output("output-loading", "children",allow_duplicate=True),
@@ -177,8 +180,13 @@ def downloadClicked(button,ticker,date):
 )
 def updateHoliday(on,fig):
     # print("DEBUG Holiday")
-    if on: fig["layout"]["xaxis"]["rangebreaks"][0]["values"] = ALL_HOLIDAYS
-    else: fig["layout"]["xaxis"]["rangebreaks"][0]["values"] = []
+    if on: 
+        fig["layout"]["xaxis"]["rangebreaks"][0]["values"] = ALL_HOLIDAYS
+        fig["layout"]["xaxis2"]["rangebreaks"][0]["values"] = ALL_HOLIDAYS
+    else: 
+        fig["layout"]["xaxis"]["rangebreaks"][0]["values"] = []
+        fig["layout"]["xaxis2"]["rangebreaks"][0]["values"] = []
+
     return fig
 
 
@@ -190,8 +198,13 @@ def updateHoliday(on,fig):
 )
 def updateExtended(on,fig):
     # print("DEBUG Extended")
-    if on: fig["layout"]["xaxis"]["rangebreaks"][-1]["bounds"] = [20,4]
-    else: fig["layout"]["xaxis"]["rangebreaks"][-1]["bounds"] = [16,9.5]
+    if on: 
+        fig["layout"]["xaxis"]["rangebreaks"][-1]["bounds"] = [20,4]
+        fig["layout"]["xaxis2"]["rangebreaks"][-1]["bounds"] = [20,4]
+
+    else: 
+        fig["layout"]["xaxis"]["rangebreaks"][-1]["bounds"] = [16,9.5]
+        fig["layout"]["xaxis2"]["rangebreaks"][-1]["bounds"] = [16,9.5]
     return fig
 
 @callback(
@@ -249,42 +262,46 @@ def populateFigure(data, ticker, year, month,year_options, month_options):
     State("fig","figure")
 )
 def calculatePercentChange(data,fig):
+    print(data)
     if not data: return False, no_update, no_update
+
+
+    pt = data["points"][0]
+    x, y = pt["bbox"]["x0"]-160, pt["bbox"]["y0"]-180
+    selected_date = datetime.strptime(pt["x"], r"%Y-%m-%d %H:%M")
 
     mask = (df['timestamp'] >= (fig["layout"]["xaxis"]["range"][0] if fig["layout"]["xaxis"]["range"] else "00:00:00"))
     df_range = df.loc[mask]
+    dff = df_range[df_range.timestamp == selected_date]
+
     initial_price = float(df_range[df_range.timestamp == df_range.timestamp.min()]["close"])
-    final_price = data["points"][0]['y']
+    final_price = float(dff["close"])
     change = 100*((final_price-initial_price)/initial_price)
 
-    pt = data["points"][0]
-    x, y = pt["bbox"]["x0"]-160, pt["bbox"]["y0"]-200
-    selected_date,close = datetime.strptime(pt["x"], r"%Y-%m-%d %H:%M"), pt["y"]
     # print(x, selected_date, pt["bbox"])
-    bbox = {"x0":0,"x1":100,"y0":0,"y1":500}
-    customdata = pt["customdata"]
+    bbox = {"x0":0,"x1":100,"y0":0,"y1":450}
     children = [
         html.Div([
             html.Table([
                 html.Tr([
                     html.Td("Volume",style={"color":"grey"}),
-                    html.Td("{}".format(numerize.numerize(customdata[3]),2), style={"text-align":"right"}),
+                    html.Td("{}".format(numerize.numerize(int(dff["volume"])),2), style={"text-align":"right"}),
                 ]),
                 html.Tr([
                     html.Td("Open",style={"color":"grey"}),
-                    html.Td("{:.2f}".format(customdata[0]), style={"text-align":"right"}),
+                    html.Td("{:.2f}".format(float(dff["open"])), style={"text-align":"right"}),
                 ]),
                 html.Tr([
                     html.Td("High",style={"color":"grey"}),
-                    html.Td("{:.2f}".format(customdata[1]), style={"text-align":"right"}),
+                    html.Td("{:.2f}".format(float(dff["high"])), style={"text-align":"right"}),
                 ]),
                 html.Tr([
                     html.Td("Low",style={"color":"grey"}),
-                    html.Td("{:.2f}".format(customdata[2]), style={"text-align":"right"}),
+                    html.Td("{:.2f}".format(float(dff["low"])), style={"text-align":"right"}),
                 ]),
                 html.Tr([
                     html.Td("Close",style={"color":"grey"}),
-                    html.Td("{:.2f}".format(pt['y']), style={"text-align":"right"}),
+                    html.Td("{:.2f}".format(final_price), style={"text-align":"right"}),
                 ]),
                 html.Tr([
                     html.Td("% Change",style={"color":"grey"}),
@@ -306,12 +323,12 @@ def calculatePercentChange(data,fig):
             
         ], style={
             "position":"fixed",
-            "top":"430px",
+            "top":"580px",
             "left":f"{x}px"
         }),
         html.Div([
             html.P(
-                children=f"{close:.2f}",
+                children=f"{final_price:.2f}" if not pt["curveNumber"] else f"{numerize.numerize(int(dff['volume']))}",
                 style={
                     "padding":"5px",
                     "border-radius":"5%",
@@ -323,7 +340,7 @@ def calculatePercentChange(data,fig):
         ], style={
             "position":"fixed",
             "top":f"{y}px",
-            "left":"89vw"
+            "left":"69.5vw"
         })
 
     ]
@@ -338,7 +355,7 @@ def calculatePercentChange(data,fig):
     prevent_initial_call = True,
 )
 def scaleYaxis(rng,fig,data):
-    # print("DEBUG SCALEYAXIS:",rng,bool(fig))  
+    # print("DEBUG SCALEYAXIS:",rng)  
     # print(df, fig["data"][0]["x"])
     if not fig: 
         # print("DEBUG FIG NOT FOUND",data)
@@ -349,26 +366,38 @@ def scaleYaxis(rng,fig,data):
         # print("AUTORANGE INITIATE")
         fig['layout']['xaxis']['autorange'] = rng["xaxis.autorange"]
         fig['layout']['yaxis']['autorange'] = rng["xaxis.autorange"]
+        fig['layout']['xaxis2']['autorange'] = rng["xaxis2.autorange"]
+        fig['layout']['yaxis2']['autorange'] = rng["xaxis2.autorange"]
 
     elif rng and ("xaxis.range[0]" in rng or "xaxis.range" in rng):
         # print("MANUAL INITIATE")
         fig['layout']['xaxis']['autorange'] = False
         fig['layout']['yaxis']['autorange'] = False
+        fig['layout']['xaxis2']['autorange'] = False
+        fig['layout']['yaxis2']['autorange'] = False
 
         start_time = rng['xaxis.range'][0] if "xaxis.range" in rng else rng['xaxis.range[0]']
         end_time = rng["xaxis.range"][1] if "xaxis.range" in rng else rng['xaxis.range[1]']
+        start_time = datetime.fromisoformat(start_time.split('.')[0])
+        end_time = datetime.fromisoformat(end_time.split('.')[0])
+        # print(start_time, end_time)
+    
         try:
             mask = (df['timestamp'] >= start_time) & (df['timestamp'] <= end_time)
             df_range = df.loc[mask]
             ymin, ymax = df_range["close"].min(), df_range["close"].max()
+            ymin2, ymax2 = df_range["volume"].min(), df_range["volume"].max()
             offset = (ymax-ymin)*0.1
+            offset2 = (ymax2-ymin2)*0.1
+
             # print(ymin,ymax,offset)
             fig['layout']['yaxis']['range'] = [ymin-offset,ymax+offset]
+            fig['layout']['yaxis2']['range'] = [ymin2-offset2,ymax2+offset2]
+
         except KeyError:
             pass
         finally:
-            fig['layout']['xaxis']['range'] = [max(min(df["timestamp"]),start_time),min(max(df["timestamp"]),end_time)]
-    
+            fig['layout']['xaxis']['range'] = fig['layout']['xaxis2']['range'] = [max(min(df["timestamp"]),start_time),min(max(df["timestamp"]),end_time)]
     return fig
 
 
