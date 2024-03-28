@@ -2,10 +2,14 @@ import pandas as pd
 import os
 from datetime import datetime, date, timedelta
 import csv
-
+import json
 # df = pd.read_csv('data.csv')
 def create_screener(start_date, today):
-    directory = r"/Volumes/easystore/ProjectGRT"
+    f = open('project_variables.json')
+    data = json.load(f)
+    store_path =data["project-path"]
+
+    directory = store_path
 
     # latest_date = pd.read_csv(os.path.join(directory,"Current_Status.csv"))
     # today = date.today()

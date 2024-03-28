@@ -20,11 +20,17 @@ from HistoricalStockData_Single import download
 from numerize import numerize
 from DownloadDailyData import download_daily_single, loadTickerData
 from Indicators import createRSI, createMACD
+import json
 
 dash.register_page(__name__)
 
+
+f = open('project_variables.json')
+data = json.load(f)
+store_path =data["stock-data-path"]
+
 def loadStockData():
-    CSV_DIR = r"/Volumes/easystore/ProjectGRT/StockData/"
+    CSV_DIR = store_path
     csv_files = listdir(CSV_DIR)
     csv_map = defaultdict(lambda: defaultdict(list))
     for csv_file in csv_files:
@@ -298,7 +304,7 @@ def populateFigure(data, ticker, year, month,year_options, month_options, holida
             month_options = sorted([k for k in csv_map[ticker][year]]) 
             month = month_options[0]
 
-    CSV_PATH = "/Volumes/easystore/ProjectGRT/StockData/{}_{:d}-{:02d}.csv".format(ticker,year,month)
+    CSV_PATH = "{}{}_{:d}-{:02d}.csv".format(store_path,ticker,year,month)
     fig = createFig(CSV_PATH,ticker)
     fig = updateHoliday(holiday_on, fig)
     fig = updateExtended(extended_on, fig)

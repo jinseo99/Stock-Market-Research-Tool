@@ -11,11 +11,15 @@ from DownloadDailyData import download_daily
 from DailyScreener import create_screener
 from AverageRanking import calculateFromPrev
 import os 
+import json
 
 dash.register_page(__name__)
+f = open('project_variables.json')
+data = json.load(f)
+store_path =data["project-path"]
 
 cur_date = None
-CSV_DIR = "/Volumes/easystore/ProjectGRT/screener/"
+CSV_DIR = "{store_path}/screener/"
 def loadScreenerData():
     csv_files = listdir(CSV_DIR)
     csv_list = []
@@ -29,7 +33,7 @@ def loadScreenerData():
 
 screener_list = loadScreenerData()
 screener_list.sort()
-average_ranking = pd.read_csv(r"/Volumes/easystore/ProjectGRT/AverageVolumeRanking.csv", usecols=["Ticker","Avg Rank"])
+average_ranking = pd.read_csv("{store_path}AverageVolumeRanking.csv", usecols=["Ticker","Avg Rank"])
 average_ranking["Avg Rank"] = average_ranking["Avg Rank"].round(2)
 
 layout = html.Div([

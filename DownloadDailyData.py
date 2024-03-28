@@ -5,10 +5,16 @@ import os
 import calendar
 from collections import defaultdict
 import csv 
+import json 
+
+f = open('project_variables.json')
+data = json.load(f)
+store_path =data["project-path"]
+
 
 def listEmptyFiles():
     res = []
-    directory = r"/Volumes/easystore/ProjectGRT/data/"
+    directory = store_path+"data/"
     for filename in os.listdir(directory):
         if filename.endswith(".csv") and not os.stat(os.path.join(directory,filename)).st_size:
             res.append(filename.split('_')[0])
@@ -16,7 +22,7 @@ def listEmptyFiles():
 # stock_list = listEmptyFiles()
 
 def download_daily(start_date, today):
-    directory = r"/Volumes/easystore/ProjectGRT"
+    directory = store_path
     stock_map = loadTickerData()
     # latest_date = pd.read_csv(os.path.join(directory,"Current_Status.csv"))
     # today = date.today()
@@ -40,7 +46,7 @@ def download_daily(start_date, today):
             pass
 
 def download_daily_single(ticker, year, month):
-    directory = r"/Volumes/easystore/ProjectGRT"
+    directory = store_path
     _, last_day = calendar.monthrange(year, month)
     last_day_date = date(year,month,last_day)+timedelta(days=1)
     stock = yf.Ticker(ticker)
@@ -49,8 +55,7 @@ def download_daily_single(ticker, year, month):
     data.to_csv(os.path.join(directory,"StockData","Daily",filename))
 
 def loadTickerData():
-    directory = r"/Volumes/easystore/ProjectGRT"
-
+    directory = store_path
     stock_map = defaultdict(str)
     with open(os.path.join(directory,"nasdaq.csv")) as csv_file: 
         reader = csv.reader(csv_file) 

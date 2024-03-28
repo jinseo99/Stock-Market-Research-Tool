@@ -2,11 +2,15 @@ import pandas as pd
 from collections import defaultdict
 from datetime import datetime, timedelta, date
 import os
-
+import json
 def calculateFromScratch():
+    f = open('project_variables.json')
+    data = json.load(f)
+    store_path =data["project-path"]
+
     stock_ranking = defaultdict(list)
     stock_count = defaultdict(int)
-    directory = r"/Volumes/easystore/ProjectGRT/screener/"
+    directory = store_path + "screener/"
 
     file_count = 1
     for filename in os.listdir(directory):
@@ -28,10 +32,14 @@ def calculateFromScratch():
     df.index.name = "Ticker"
     df = df.sort_values(by=['Avg Rank'])
     print(df)
-    df.to_csv(r"/Volumes/easystore/ProjectGRT/AverageVolumeRanking.csv")
+    df.to_csv("{store_path}AverageVolumeRanking.csv")
 
 def calculateFromPrev(start_date, today):
-    directory = r"/Volumes/easystore/ProjectGRT/"
+    f = open('project_variables.json')
+    data = json.load(f)
+    store_path =data["project-path"]
+
+    directory = store_path
     # latest_date = pd.read_csv(os.path.join(directory,"Current_Status.csv"))
     # today = date.today()
     # start_date = datetime.fromisoformat(latest_date["Latest Date"][0])  + timedelta(days=1)
