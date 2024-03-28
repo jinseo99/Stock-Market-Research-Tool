@@ -32,7 +32,7 @@ def calculateFromScratch():
     df.index.name = "Ticker"
     df = df.sort_values(by=['Avg Rank'])
     print(df)
-    df.to_csv("{store_path}AverageVolumeRanking.csv")
+    df.to_csv(f"{store_path}AverageVolumeRanking.csv")
 
 def calculateFromPrev(start_date, today):
     f = open('project_variables.json')

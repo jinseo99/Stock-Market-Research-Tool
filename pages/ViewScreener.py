@@ -19,7 +19,7 @@ data = json.load(f)
 store_path =data["project-path"]
 
 cur_date = None
-CSV_DIR = "{store_path}/screener/"
+CSV_DIR = f"{store_path}screener/"
 def loadScreenerData():
     csv_files = listdir(CSV_DIR)
     csv_list = []
@@ -33,7 +33,7 @@ def loadScreenerData():
 
 screener_list = loadScreenerData()
 screener_list.sort()
-average_ranking = pd.read_csv("{store_path}AverageVolumeRanking.csv", usecols=["Ticker","Avg Rank"])
+average_ranking = pd.read_csv(f"{store_path}AverageVolumeRanking.csv", usecols=["Ticker","Avg Rank"])
 average_ranking["Avg Rank"] = average_ranking["Avg Rank"].round(2)
 
 layout = html.Div([
