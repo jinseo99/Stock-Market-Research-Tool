@@ -61,7 +61,7 @@ layout = html.Div([
             style_table={ "font-size":"1.2em"},
             sort_action='native',
             page_current=0,
-            page_size=100,
+            page_size=25,
             filter_action='native',
             filter_options = {"case":"insensitive"},
             style_cell_conditional=[
@@ -81,23 +81,30 @@ layout = html.Div([
 
 @callback(
     Output("refresh-loading-output","children"),
+    Output("my-date-picker-single", "max_date_allowed"),
     Input("refresh-data-button","n_clicks")
 )
 def refreshData(button):
+    global average_ranking, screener_list
     if button:
         directory = r"/Volumes/easystore/ProjectGRT"
         path = os.path.join(directory,"Current_Status.csv")
         latest_date = pd.read_csv(path)
         today = date.today()
         start_date = datetime.fromisoformat(latest_date["Latest Date"][0])  + timedelta(days=1)
-        if start_date.date() >= today: return "Latest Data already Retrieved"
-        download_daily(start_date, today)
+        if start_date.date() > today: return "Latest Data already Retrieved", date(screener_list[-1][0], screener_list[-1][1], screener_list[-1][2])
+        download_daily(start_date, today+timedelta(days=1))
         create_screener(start_date, today)
         calculateFromPrev(start_date, today)
         latest_date.loc[0,"Latest Date"] = today.strftime(r"%Y-%m-%d")
         latest_date.to_csv(path, index=False)
-        return "Latest Data Updated"
-    return "", 
+        average_ranking = pd.read_csv(r"/Volumes/easystore/ProjectGRT/AverageVolumeRanking.csv", usecols=["Ticker","Avg Rank"])
+        average_ranking["Avg Rank"] = average_ranking["Avg Rank"].round(2)
+        screener_list = loadScreenerData()
+        screener_list.sort()
+        return "Latest Data Updated", date(screener_list[-1][0], screener_list[-1][1], screener_list[-1][2])
+    return "", date(screener_list[-1][0], screener_list[-1][1], screener_list[-1][2])
+
 @callback(
     Output('output-container-date-picker-single', 'children'),
     Output('screener-datatable', 'data'),
@@ -172,7 +179,7 @@ def addOrSubtractDay(prev_button, next_button, cached_data):
     State("screener-datatable","data")
 )
 def cellSelected(cell, selected_date, data):
-    print(cell)
+    # print(cell)
 
     if cell and cell["column_id"] == "Ticker":
         selected_date = date.fromisoformat(selected_date).strftime(r"%m/%d/%Y")

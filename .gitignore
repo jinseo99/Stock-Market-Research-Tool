@@ -27,3 +27,8 @@ StockData\\downloaded.csv
 test.json
 test.py
 test2.py
+.ipynb_checkpoints/*
+Cheatsheet/*
+Indicators.py
+TestRSI.ipynb
+scalping.xlsx

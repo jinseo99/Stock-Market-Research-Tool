@@ -14,7 +14,7 @@ def download(ticker, selected_date):
     # selected_date = sys.argv[2]
     print(ticker, selected_date)
 
-    CSV_URL = 'https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol={}&interval=1min&month={}&datatype=csv&outputsize=full&apikey=JNE5BTFVV3SIZI0L'.format(ticker, selected_date)
+    CSV_URL = 'https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol={}&interval=1min&month={}&datatype=csv&outputsize=full&apikey=C0I5S43PCKLITZEF'.format(ticker, selected_date)
     print(CSV_URL)
     success = True
     for i in range(3): 

@@ -36,7 +36,7 @@ def calculateFromPrev(start_date, today):
     # today = date.today()
     # start_date = datetime.fromisoformat(latest_date["Latest Date"][0])  + timedelta(days=1)
     # if start_date.date() >= today: return
-    average_ranking = pd.read_csv(os.path.join(directory,"AverageVolumeRanking.csv"))
+    average_ranking = pd.read_csv(os.path.join(directory,"AverageVolumeRanking.csv"),index_col=0)
     daterange = pd.date_range(start_date, today)
     for cur_date in daterange:
         filename = "Most-Volume_" + cur_date.strftime(r"%Y-%m-%d") +".csv"
